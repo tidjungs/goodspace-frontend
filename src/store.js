@@ -3,7 +3,7 @@ import { observable, action, computed } from 'mobx';
 class AppStore {
   @observable birds = [];
 
-  @action
+  @action 
   addBird = bird => {
     this.birds.push(bird);
   };
