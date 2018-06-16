@@ -6,15 +6,16 @@ const TextInput = ({
   label,
   iconName,
   placeholder,
+  value,
   onTextChange,
 }) => {
   return (
     <div>
-      <div class="mr-1">    
+      <div className="mr-1">    
         <b><label>{label}</label></b>
       </div>
       <div>
-        <Input icon={iconName} placeholder={placeholder} iconPosition='left'/><br />
+        <Input icon={iconName} placeholder={placeholder} value={value} iconPosition='left' onChange={onTextChange}/><br />
       </div>
     </div>
   )
@@ -24,6 +25,7 @@ TextInput.propTypes = {
   label: PropTypes.string,
   iconName: PropTypes.string,
   placeholder: PropTypes.string,
+  value: PropTypes.string,
   onTextChange: PropTypes.func,
 }
 

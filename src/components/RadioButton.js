@@ -3,18 +3,21 @@ import PropTypes from 'prop-types'
 import { Radio } from 'semantic-ui-react';
 
 const RadioButton = ({ 
-  label
+  label,
+  choice,
+  value,
+  onChange
 }) => {
   return (
     <div style={{display: 'flex', flexDirection: 'row'}}>
-      <div class="mr-1">    
+      <div className="mr-1">    
         <b><label>{label}</label></b>
       </div>
-      <div class="mr-1">
-        <Radio label='Yes' defaultChecked />
+      <div className="mr-1">
+        <Radio label={choice[0]} value={choice[0]}  checked={value === choice[0]} onChange={onChange}/>
       </div>
       <div>
-        <Radio label='No' />
+        <Radio label={choice[1]} value={choice[1]}  checked={value === choice[1]} onChange={onChange}/>
       </div>
     </div>
   )
@@ -22,9 +25,9 @@ const RadioButton = ({
 
 RadioButton.propTypes = {
   label: PropTypes.string,
-  iconName: PropTypes.string,
-  placeholder: PropTypes.string,
-  onTextChange: PropTypes.func,
+  choice: PropTypes.array,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
 }
 
 export default RadioButton;
