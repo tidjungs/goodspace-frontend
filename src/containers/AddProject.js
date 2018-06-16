@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import TextInput from '../components/TextInput';
 import ConfirmButton from '../components/ConfirmButton';
 import PageTitle from '../components/PageTitle';
+import SelectProvince from '../components/SelectProvince';
 import { DatesRangeInput } from 'semantic-ui-calendar-react'
+import { postProject } from '../utils/api';
 
 class AddProject extends Component {
   state = {
@@ -26,8 +28,20 @@ class AddProject extends Component {
     }
   }
 
-  onConfirmClick = () => {
-    console.log('sss');
+  onProvinceChange = (e, { value }) => {
+    this.setState({
+      province: value,
+    });
+  }
+
+  onConfirmClick = async () => {
+    const { province } = this.state;
+    // const res = await postProject({
+    //   id: 1234,
+    //   nameTH: 'เทส',
+    //   nameEng: 'test',
+    //   province: 'กรุงเทพ',
+    // });
   }
 
   onCancelClick = () => {
@@ -37,12 +51,11 @@ class AddProject extends Component {
     const {
       projectID,
       projectName,
-      province,
       constructionDuration,
       pmName,
       email
     } = this.state;
-    console.log(this.state.projectID)
+    // console.log(this.state.constructionDuration)
     return (
       <div className="container">
         <PageTitle 
@@ -67,13 +80,8 @@ class AddProject extends Component {
           />
         </div>
         <div className="mt-1">
-          <TextInput 
-            label="Province"
-            iconName="map marker alternate"
-            placeholder="province..."
-            value={province}
-            onTextChange={this.onTextChange('province')}
-          />
+          <label>จังหวัด</label><br />
+          <SelectProvince onChange={this.onProvinceChange} />
         </div>
         <div className="mt-1">
           <div className="mr-1">    
