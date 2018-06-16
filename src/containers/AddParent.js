@@ -70,7 +70,7 @@ class Children extends Component {
             label="Gender"
             choice={["Male", "Female"]}
             value={gender}
-            onTextChange={this.handleChange('gender')}
+            onChange={this.handleChange('gender')}
           />
         </div>
         <div className="mt-1">
