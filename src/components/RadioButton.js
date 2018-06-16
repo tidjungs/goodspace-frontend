@@ -3,7 +3,9 @@ import PropTypes from 'prop-types'
 import { Radio } from 'semantic-ui-react';
 
 const RadioButton = ({ 
-  label
+  label,
+  choice1,
+  choice2
 }) => {
   return (
     <div style={{display: 'flex', flexDirection: 'row'}}>
@@ -11,10 +13,10 @@ const RadioButton = ({
         <b><label>{label}</label></b>
       </div>
       <div class="mr-1">
-        <Radio label='Yes' defaultChecked />
+        <Radio label={choice1} />
       </div>
       <div>
-        <Radio label='No' />
+        <Radio label={choice2} />
       </div>
     </div>
   )

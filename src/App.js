@@ -10,6 +10,7 @@ import Children from './containers/Children';
 import ChildrenDetail from './containers/ChildrenDetail';
 import Camp from './containers/Camp';
 import AddCamp from './containers/AddCamp'
+import AddChildren from './containers/AddChildren'
 
 class App extends Component {
   render() {
@@ -24,6 +25,7 @@ class App extends Component {
             <Route path="/children/:childId" component={ChildrenDetail} />
             <Route path="/camp" component={Camp} />
             <Route path="/add/camp" component={AddCamp} />
+            <Route path="/add/children" component={AddChildren} />
           </div>
         </Router>
       </Provider>

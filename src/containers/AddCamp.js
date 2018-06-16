@@ -40,6 +40,8 @@ class Children extends Component {
         <div class="mt-1">
           <RadioButton 
             label = 'Has Good Space?'
+            choice1 = 'Yes'
+            choice2 = 'No'
           />
         </div>
         <div class="mt-1">
