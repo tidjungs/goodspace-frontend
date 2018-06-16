@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import SearchBox from '../components/SearchBox';
 import SearchTable from '../components/SearchTable';
 import NavBar from '../components/NavBar';
+import { getChildren } from '../utils/api';
+
 
 class Children extends Component {
   state = {
@@ -12,6 +14,13 @@ class Children extends Component {
     ],
     activePage: 1,
     allPage: 10,
+  }
+
+  async componentDidMount() {
+    // const res = await getChildren();
+    // this.setState({
+    //   childrenData: res.data
+    // })
   }
 
   onPageChange = (e, { activePage }) => this.setState({ activePage })
@@ -28,7 +37,7 @@ class Children extends Component {
         <SearchBox 
           label="Who are you looking for?"
           type="children"
-          path="/"
+          path="/add/children"
         />
         <SearchTable
           data={childrenData}

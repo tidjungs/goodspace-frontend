@@ -89,4 +89,8 @@ p, label, a, .title {
   font-family: myFirstFont;
 }
 
-
+.not-found {
+  margin-top: 40px;
+  margin-left: 40px;
+  font-size: 30px;
+}

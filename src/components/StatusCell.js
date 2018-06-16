@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table, Icon } from 'semantic-ui-react'
-import { PropTypes } from 'mobx-react';
+import { PropTypes } from 'prop-types';
 
 const StatusCell = ({ status }) => {
   if (status) {

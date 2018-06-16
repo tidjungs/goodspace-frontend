@@ -4,7 +4,7 @@ import ConfirmButton from '../components/ConfirmButton';
 import PageTitle from '../components/PageTitle';
 import { DatesRangeInput } from 'semantic-ui-calendar-react'
 
-class Children extends Component {
+class AddProject extends Component {
   state = {
     projectID: '',
     projectName: '',
@@ -26,6 +26,13 @@ class Children extends Component {
     }
   }
 
+  onConfirmClick = () => {
+    console.log('sss');
+  }
+
+  onCancelClick = () => {
+    
+  }
   render() {
     const {
       projectID,
@@ -35,6 +42,7 @@ class Children extends Component {
       pmName,
       email
     } = this.state;
+    console.log(this.state.projectID)
     return (
       <div className="container">
         <PageTitle 
@@ -97,11 +105,14 @@ class Children extends Component {
           />
         </div>
         <div className="mt-1">
-          <ConfirmButton />
+          <ConfirmButton 
+            onConfirmClick={this.onConfirmClick}
+            onCancelClick={this.onCancelClick}
+          />
         </div>
       </div>
     );
   }
 }
 
-export default Children;
+export default AddProject;

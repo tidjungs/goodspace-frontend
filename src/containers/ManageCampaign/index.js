@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../../components/NavBar';
+import { Link } from 'react-router-dom';
 import baby from '../../images/baby.png';
 import family from '../../images/family.png';
 import tent from '../../images/tent.png';
@@ -43,13 +43,15 @@ const ManageCamapign = () => (
       </div>
     </div>
     <div>
-      <div className="manage-campaign-card">
-        <img className="manage-campaign-img" src={visitor} alt="" />
-        <label className="manage-campaign-label">Add new Campaign</label>
-      </div>
-      <div className="manage-campaign-plus">
-        <img src={pyellow} alt="" />
-      </div>
+      <Link to="/add/project">
+        <div className="manage-campaign-card">
+          <img className="manage-campaign-img" src={visitor} alt="" />
+          <label className="manage-campaign-label">Add new Project</label>
+        </div>
+        <div className="manage-campaign-plus">
+          <img src={pyellow} alt="" />
+        </div>
+      </Link>
     </div>
     <div>
       <div className="manage-campaign-card">

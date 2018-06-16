@@ -12,7 +12,9 @@ const SearchTable = ({
   onPageChange,
 }) => {
   if (data.length === 0) {
-    return <div>Not Found ...</div>
+    return (
+      <div className="not-found">Not Found ...</div>
+    )
   }
   const keys = Object.keys(data[0]);
   return (
