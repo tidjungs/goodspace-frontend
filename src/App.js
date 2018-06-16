@@ -9,8 +9,14 @@ import Parent from './containers/Parent';
 import Children from './containers/Children';
 import ChildrenDetail from './containers/ChildrenDetail';
 import Camp from './containers/Camp';
+import AddCamp from './containers/AddCamp';
 import bg from './images/bg.png'
 
+const FooterRoute = ({ pathList }) => (
+  <div>
+    { pathList.map((path) => (<Route path={path} component={() => <img className="background" src={bg} alt="" />} />)) }
+  </div>
+)  
 
 class App extends Component {
   render() {
@@ -24,7 +30,8 @@ class App extends Component {
             <Route exact path="/children" component={Children} />
             <Route path="/children/:childId" component={ChildrenDetail} />
             <Route path="/camp" component={Camp} />
-            <img className="background" src={bg} alt="" />
+            <Route path="/add/camp" component={AddCamp} />
+            <FooterRoute pathList={["/", "/dashboard", "/parent"]} />
           </div>
         </Router>
       </Provider>
