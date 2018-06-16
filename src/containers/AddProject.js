@@ -5,17 +5,29 @@ import PageTitle from '../components/PageTitle';
 
 class Children extends Component {
   state = {
-    childrenData: [
-      { id: 1234, name: 'test test', parent: 'abc', camp: 'A' },
-      { id: 1235, name: 'test test', parent: 'def, abc', camp: 'B' }
-    ]
+    projectID: '',
+    projectName: '',
+    province: '',
+    constructionDuration: '',
+    pmName: '',
+    email: ''
   }
 
-  onSearchClick = () => {
-    console.log('search...');
+  onTextChange = (key) => e => {
+    this.setState({
+      [key]: e.target.value
+    })
   }
-  
+
   render() {
+    const {
+      projectID,
+      projectName,
+      province,
+      constructionDuration,
+      pmName,
+      email
+    } = this.state;
     return (
       <div className="container">
         <PageTitle 
@@ -26,6 +38,8 @@ class Children extends Component {
             label="Project ID"
             iconName="id card"
             placeholder="project ID..."
+            value={projectID}
+            onTextChange={this.onTextChange('projectID')}
           />
         </div>
         <div className="mt-1">
@@ -33,6 +47,8 @@ class Children extends Component {
             label="Project Name"
             iconName="building"
             placeholder="project name..."
+            value={projectName}
+            onTextChange={this.onTextChange('projectName')}
           />
         </div>
         <div className="mt-1">
@@ -40,6 +56,8 @@ class Children extends Component {
             label="Province"
             iconName="map marker alternate"
             placeholder="province..."
+            value={province}
+            onTextChange={this.onTextChange('province')}
           />
         </div>
         <div className="mt-1">
@@ -47,6 +65,8 @@ class Children extends Component {
             label="Construction duration"
             iconName="calendar"
             placeholder="duration..."
+            value={constructionDuration}
+            onTextChange={this.onTextChange('constructionDuration')}
           />
         </div>
         <div className="mt-1">
@@ -54,6 +74,8 @@ class Children extends Component {
             label="Project Manager"
             iconName="user"
             placeholder="project manager..."
+            value={pmName}
+            onTextChange={this.onTextChange('pmName')}
           />
         </div>
         <div className="mt-1">
@@ -61,6 +83,8 @@ class Children extends Component {
             label="Email"
             iconName="at"
             placeholder="email..."
+            value={email}
+            onTextChange={this.onTextChange('email')}
           />
         </div>
         <div className="mt-1">
