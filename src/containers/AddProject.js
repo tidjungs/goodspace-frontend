@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TextInput from '../components/TextInput';
 import ConfirmButton from '../components/ConfirmButton';
 import PageTitle from '../components/PageTitle';
+import { DatesRangeInput } from 'semantic-ui-calendar-react'
 
 class Children extends Component {
   state = {
@@ -17,6 +18,12 @@ class Children extends Component {
     this.setState({
       [key]: e.target.value
     })
+  }
+
+  handleDateChange = (event, {name, value}) => {
+    if (this.state.hasOwnProperty(name)) {
+      this.setState({ [name]: value });
+    }
   }
 
   render() {
@@ -61,13 +68,15 @@ class Children extends Component {
           />
         </div>
         <div className="mt-1">
-          <TextInput 
-            label="Construction duration"
-            iconName="calendar"
-            placeholder="duration..."
+          <div className="mr-1">    
+            <b><label>Construction Duration</label></b>
+          </div>
+          <DatesRangeInput
+            name="constructionDuration"
+            placeholder="From - To"
             value={constructionDuration}
-            onTextChange={this.onTextChange('constructionDuration')}
-          />
+            iconPosition="left"
+            onChange={this.handleDateChange} />
         </div>
         <div className="mt-1">
           <TextInput 

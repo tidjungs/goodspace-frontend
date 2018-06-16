@@ -3,6 +3,7 @@ import TextInput from '../components/TextInput';
 import ConfirmButton from '../components/ConfirmButton';
 import RadioButton from '../components/RadioButton';
 import PageTitle from '../components/PageTitle';
+import { DateInput } from 'semantic-ui-calendar-react'
 
 class Children extends Component {
   state = {
@@ -18,7 +19,9 @@ class Children extends Component {
     grade: '',
     schoolName: '',
     vaccine: '',
-    pastVaccine: ''
+    pastVaccine: '',
+    assignDate: '',
+    takeDate: ''
   }
   
   onTextChange = (key) => e => {
@@ -31,6 +34,12 @@ class Children extends Component {
     this.setState({ 
       [key]: value 
     })
+  }
+
+  handleDateChange = (event, {name, value}) => {
+    if (this.state.hasOwnProperty(name)) {
+      this.setState({ [name]: value });
+    }
   }
 
   render() {
@@ -48,6 +57,8 @@ class Children extends Component {
       schoolName,
       vaccine,
       pastVaccine,
+      assignDate,
+      takeDate
     } = this.state;
     return (
       <div className="container">
@@ -90,13 +101,15 @@ class Children extends Component {
           />
         </div>
         <div className="mt-1">
-          <TextInput 
-            label="Birthdate"
-            iconName="calendar"
+          <div className="mr-1">    
+            <b><label>Birthdate</label></b>
+          </div>
+          <DateInput
+            name="birthdate"
             placeholder="Birthdate..."
             value={birthdate}
-            onTextChange={this.onTextChange('birthdate')}
-          />
+            iconPosition="left"
+            onChange={this.handleDateChange} />
         </div>
         <div className="mt-1">
           <TextInput 
@@ -166,6 +179,28 @@ class Children extends Component {
             value={pastVaccine}
             onTextChange={this.handleChange('pastVaccine')}
           />
+        </div>
+        <div className="mt-1">
+          <div className="mr-1">    
+            <b><label>Assign vaccine date</label></b>
+          </div>
+          <DateInput
+            name="assignDate"
+            placeholder="assign date..."
+            value={assignDate}
+            iconPosition="left"
+            onChange={this.handleDateChange} />
+        </div>
+        <div className="mt-1">
+          <div className="mr-1">    
+            <b><label>Take vaccine date</label></b>
+          </div>
+          <DateInput
+            name="takeDate"
+            placeholder="take date..."
+            value={takeDate}
+            iconPosition="left"
+            onChange={this.handleDateChange} />
         </div>
         <div className="mt-1">
           <ConfirmButton />
