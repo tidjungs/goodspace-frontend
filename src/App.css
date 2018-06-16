@@ -90,10 +90,17 @@ a {
   src: url('./SukhumvitSet-Medium.ttf');
 }
 
-/* p, label, a, .title {
+p, label, a, .title {
   font-family: myFirstFont;
-} */
+} 
 
 .titleName {
   font-family: sukhumvit;
 }
+
+.not-found {
+  margin-top: 40px;
+  margin-left: 40px;
+  font-size: 30px;
+}
+

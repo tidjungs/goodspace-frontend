@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import childrenImg from '../../images/child.png';
 import parentImg from '../../images/parents.png';
 import campImg from '../../images/camp.png';
@@ -12,7 +12,7 @@ const Main = () => (
     <div className="main-container">
       <label className="title">Good Space</label><br />
       <div className="mt-1" />
-      <label className="sub-title">ajsdhjhkdhjqhefjhejkfhkqehfkh</label>
+      <label className="sub-title">Good for Life...</label>
       <div className="mt-2" />
       <div className="row-1">
         <MainButton 

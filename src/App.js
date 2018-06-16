@@ -37,15 +37,13 @@ class App extends Component {
             <Route exact path="/camp" component={Camp} />
             <Route exact path="/add/camp" component={AddCamp} />
             <Route exact path="/campaign" component={ManageCamapign} />
-            <FooterRoute pathList={["/", "/parent", "/children", "/children/:childId", "/camp", "/campaign"]} />
             <Route path="/children/:childId" component={ChildrenDetail} />
-            <Route path="/camp" component={Camp} />
             <Route path="/add/camp" component={AddCamp} />
             <Route path="/add/children" component={AddChildren} />
             <Route path="/add/parent" component={AddParent} />
             <Route path="/add/project" component={AddProject} />
             <Route path="/add/suplier" component={AddSuplier} />
-            <FooterRoute pathList={["/", "/parent", "/children", "/children/:childId", "/camp"]} />
+            <FooterRoute pathList={["/", "/parent", "/children", "/children/:childId", "/camp", "/campaign"]} />
           </div>
         </Router>
       </Provider>

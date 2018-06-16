@@ -1,11 +1,15 @@
-import React, { Component } from 'react';
-import { Icon } from 'semantic-ui-react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import baby from '../../images/baby.png';
 import family from '../../images/family.png';
 import tent from '../../images/tent.png';
 import visitor from '../../images/visitor.png';
 import enginner from '../../images/engineer.png';
-import plusIcon from '../../images/add.svg';
+import pblue from '../../images/pblue.png';
+import pred from '../../images/pred.png';
+import pgreen from '../../images/pgreen.png';
+import pyellow from '../../images/pyellow.png';
+import ppurple from '../../images/ppurple.png';
 
 import './style.css';
 
@@ -17,8 +21,7 @@ const ManageCamapign = () => (
         <label className="manage-campaign-label">Add new Child</label>
       </div>
       <div className="manage-campaign-plus">
-        <img src={plusIcon} alt="" />
-        {/* <Icon name="plus circle" color='teal' size="huge" /> */}
+        <img src={pblue} alt="" />
       </div>
     </div>
     <div>
@@ -27,7 +30,7 @@ const ManageCamapign = () => (
         <label className="manage-campaign-label">Add new Parent</label>
       </div>
       <div className="manage-campaign-plus">
-        <img src={plusIcon} alt="" />
+        <img src={pred} alt="" />
       </div>
     </div>
     <div>
@@ -36,17 +39,19 @@ const ManageCamapign = () => (
         <label className="manage-campaign-label">Add new Camp</label>
       </div>
       <div className="manage-campaign-plus">
-        <img src={plusIcon} alt="" />
+        <img src={pgreen} alt="" />
       </div>
     </div>
     <div>
-      <div className="manage-campaign-card">
-        <img className="manage-campaign-img" src={visitor} alt="" />
-        <label className="manage-campaign-label">Add new Campaign</label>
-      </div>
-      <div className="manage-campaign-plus">
-        <img src={plusIcon} alt="" />
-      </div>
+      <Link to="/add/project">
+        <div className="manage-campaign-card">
+          <img className="manage-campaign-img" src={visitor} alt="" />
+          <label className="manage-campaign-label">Add new Project</label>
+        </div>
+        <div className="manage-campaign-plus">
+          <img src={pyellow} alt="" />
+        </div>
+      </Link>
     </div>
     <div>
       <div className="manage-campaign-card">
@@ -54,7 +59,7 @@ const ManageCamapign = () => (
         <label className="manage-campaign-label">Add new Suplier</label>
       </div>
       <div className="manage-campaign-plus">
-        <img src={plusIcon} alt="" />
+        <img src={ppurple} alt="" />
       </div>
     </div>
   </div>

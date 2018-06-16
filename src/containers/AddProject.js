@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import TextInput from '../components/TextInput';
 import ConfirmButton from '../components/ConfirmButton';
 import PageTitle from '../components/PageTitle';
+import { DatesRangeInput } from 'semantic-ui-calendar-react'
 
-class Children extends Component {
+class AddProject extends Component {
   state = {
     projectID: '',
     projectName: '',
@@ -19,6 +20,19 @@ class Children extends Component {
     })
   }
 
+  handleDateChange = (event, {name, value}) => {
+    if (this.state.hasOwnProperty(name)) {
+      this.setState({ [name]: value });
+    }
+  }
+
+  onConfirmClick = () => {
+    console.log('sss');
+  }
+
+  onCancelClick = () => {
+    
+  }
   render() {
     const {
       projectID,
@@ -28,6 +42,7 @@ class Children extends Component {
       pmName,
       email
     } = this.state;
+    console.log(this.state.projectID)
     return (
       <div className="container">
         <PageTitle 
@@ -61,13 +76,15 @@ class Children extends Component {
           />
         </div>
         <div className="mt-1">
-          <TextInput 
-            label="Construction duration"
-            iconName="calendar"
-            placeholder="duration..."
+          <div className="mr-1">    
+            <b><label>Construction Duration</label></b>
+          </div>
+          <DatesRangeInput
+            name="constructionDuration"
+            placeholder="From - To"
             value={constructionDuration}
-            onTextChange={this.onTextChange('constructionDuration')}
-          />
+            iconPosition="left"
+            onChange={this.handleDateChange} />
         </div>
         <div className="mt-1">
           <TextInput 
@@ -88,11 +105,14 @@ class Children extends Component {
           />
         </div>
         <div className="mt-1">
-          <ConfirmButton />
+          <ConfirmButton 
+            onConfirmClick={this.onConfirmClick}
+            onCancelClick={this.onCancelClick}
+          />
         </div>
       </div>
     );
   }
 }
 
-export default Children;
+export default AddProject;
