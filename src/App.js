@@ -10,6 +10,7 @@ import Children from './containers/Children';
 import ChildrenDetail from './containers/ChildrenDetail';
 import Camp from './containers/Camp';
 import AddCamp from './containers/AddCamp';
+import ManageCamapign from './containers/ManageCampaign/';
 import bg from './images/bg.png'
 
 const FooterRoute = ({ pathList }) => (
@@ -25,13 +26,14 @@ class App extends Component {
         <Router>
           <div>
             <Route exact path="/" component={Main} />
-            <Route path="/dashboard" component={Dashboard} />
-            <Route path="/parent" component={Parent} />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/parent" component={Parent} />
             <Route exact path="/children" component={Children} />
-            <Route path="/children/:childId" component={ChildrenDetail} />
-            <Route path="/camp" component={Camp} />
-            <Route path="/add/camp" component={AddCamp} />
-            <FooterRoute pathList={["/", "/parent", "/children", "/children/:childId", "/camp"]} />
+            <Route exact path="/children/:childId" component={ChildrenDetail} />
+            <Route exact path="/camp" component={Camp} />
+            <Route exact path="/add/camp" component={AddCamp} />
+            <Route exact path="/campaign" component={ManageCamapign} />
+            <FooterRoute pathList={["/", "/parent", "/children", "/children/:childId", "/camp", "/campaign"]} />
           </div>
         </Router>
       </Provider>
