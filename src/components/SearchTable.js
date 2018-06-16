@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import { Icon, Label, Menu, Table, Divider } from 'semantic-ui-react'
+import { Table } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
 
 const SearchTable = ({ 
   data,
 }) => {
   if (data.length === 0) {
-    return <div>ssss</div>
+    return <div>Not Found ...</div>
   }
   const keys = Object.keys(data[0]);
   return (

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Icon, Label, Menu, Table } from 'semantic-ui-react'
 import SearchBox from '../components/SearchBox';
 import SearchTable from '../components/SearchTable';
+import NavBar from '../components/NavBar';
 
 class Parent extends Component {
   state = {
@@ -18,6 +18,7 @@ class Parent extends Component {
   render() {
     return (
       <div className="container">
+        <NavBar path="/" />
         <SearchBox 
           label="Who are you looking for?"
           type="parent"
@@ -26,28 +27,6 @@ class Parent extends Component {
         <SearchTable
           data={this.state.parentData}
         />
-        {/* <Table celled>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell>ID</Table.HeaderCell>
-              <Table.HeaderCell>Parent Name</Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-          <Table.Body>
-            <Table.Row>
-              <Table.Cell>Cell</Table.Cell>
-              <Table.Cell>Cell</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>Cell</Table.Cell>
-              <Table.Cell>Cell</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>Cell</Table.Cell>
-              <Table.Cell>Cell</Table.Cell>
-            </Table.Row>
-          </Table.Body>
-        </Table> */}
       </div>
     );
   }
