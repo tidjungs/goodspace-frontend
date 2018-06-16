@@ -72,3 +72,11 @@
 a {
   cursor: pointer;
 }
+
+.background {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+

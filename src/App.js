@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
 import { Provider } from 'mobx-react';
 import Store from './store';
-import Main from './containers/Main';
+import Main from './containers/Main/';
 import Dashboard from './containers/Dashboard';
 import Parent from './containers/Parent';
 import Children from './containers/Children';
