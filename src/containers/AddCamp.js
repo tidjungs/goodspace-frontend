@@ -3,6 +3,7 @@ import { Form, Radio, Button } from 'semantic-ui-react'
 import TextInput from '../components/TextInput';
 import ConfirmButton from '../components/ConfirmButton';
 import RadioButton from '../components/RadioButton';
+import PageTitle from '../components/PageTitle';
 
 class Children extends Component {
   state = {
@@ -19,6 +20,9 @@ class Children extends Component {
   render() {
     return (
       <div className="container">
+        <PageTitle 
+          label = 'Add New Camp'
+        />
         <div class="mt-1">
           <TextInput 
             label = 'Home'
