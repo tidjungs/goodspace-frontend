@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
 import { Provider } from 'mobx-react';
 import Store from './store';
-import Main from './components/Main';
-import Dashboard from './components/Dashboard';
+import Main from './containers/Main';
+import Dashboard from './containers/Dashboard';
 
 class App extends Component {
   render() {
