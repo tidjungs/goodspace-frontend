@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import TextInput from '../components/TextInput';
 import ConfirmButton from '../components/ConfirmButton';
 import PageTitle from '../components/PageTitle';
 import SelectProvince from '../components/SelectProvince';
-import { DatesRangeInput } from 'semantic-ui-calendar-react'
+import { DatesRangeInput } from 'semantic-ui-calendar-react';
 import { postProject } from '../utils/api';
 
 class AddProject extends Component {
@@ -35,12 +36,20 @@ class AddProject extends Component {
   }
 
   onConfirmClick = async () => {
-    const { province } = this.state;
+    const { projectID, province, constructionDuration, pmName, email } = this.state;
+    const startDate = moment(constructionDuration.split(' ')[0]).unix();
+    const endDate = moment(constructionDuration.split(' ')[2]).unix();
     // const res = await postProject({
-    //   id: 1234,
+    //   id: projectID,
     //   nameTH: 'เทส',
     //   nameEng: 'test',
-    //   province: 'กรุงเทพ',
+    //   province: province,
+    //   startDate,
+    //   endDate,
+    //   managerContact: {
+    //     name: pmName,
+    //     email,
+    //   }
     // });
   }
 
