@@ -14,8 +14,8 @@ const YearChart = ({
         <CartesianGrid strokeDasharray="3 3"/>
         <Tooltip/>
         <Legend />
-        <Line type="monotone" dataKey="แรงงาน" stroke="#8884d8" activeDot={{r: 8}}/>
-        <Line type="monotone" dataKey="ผู้ติดตาม" stroke="#c266ff" />
+        <Line type="monotone" dataKey="แรงงาน" stroke="#FFBB28" activeDot={{r: 8}}/>
+        <Line type="monotone" dataKey="ผู้ติดตาม" stroke="#8884e8" />
       </LineChart>
     </div>
   )

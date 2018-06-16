@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import { PieChart, Pie, Cell } from 'recharts';
+import Tooltip from 'recharts/lib/component/Tooltip';
 
 const SentChart = ({
   data
 }) => {
-  const COLORS = ['#6600cc', '#d9b3ff'],
+  const COLORS = ['#FFBB28', '#00C49F'],
         RADIAN = Math.PI / 180,
         renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
           const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
@@ -20,18 +21,19 @@ const SentChart = ({
   return (
     <div>
       <PieChart width={800} height={400} onMouseEnter={this.onPieEnter}>
-        <Pie
-          data={data} 
-          cx={250} 
-          cy={150} 
-          labelLine={false}
-          label={renderCustomizedLabel}
-          outerRadius={150} 
-          fill="#8884d8">
-          {
-            data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
-          }
-        </Pie>
+        <Tooltip/>
+          <Pie
+            data={data} 
+            cx={250} 
+            cy={150} 
+            labelLine={false}
+            label={renderCustomizedLabel}
+            outerRadius={150} 
+            fill="#8884d8">
+            {
+              data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+            }
+          </Pie>
       </PieChart>
     </div>
   )

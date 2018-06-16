@@ -85,6 +85,15 @@ a {
   src: url('./Raleway-Regular.ttf');
 }
 
-p, label, a, .title {
+@font-face {
+  font-family: sukhumvit;
+  src: url('./SukhumvitSet-Medium.ttf');
+}
+
+/* p, label, a, .title {
   font-family: myFirstFont;
+} */
+
+.titleName {
+  font-family: sukhumvit;
 }

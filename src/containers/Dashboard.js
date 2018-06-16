@@ -4,6 +4,7 @@ import NationalChart from '../components/NationalChart';
 import AreaChart from '../components/AreaChart';
 import YearChart from '../components/YearChart';
 import SentChart from '../components/SentChart';
+import '../App.css';
 
 class Dashboard extends Component {
   render() {
@@ -34,13 +35,21 @@ class Dashboard extends Component {
           <Grid.Row columns={2}>
             <Grid.Column width={7}>
               <Message size='small' color='purple'>
-                <Message.Header>จำนวนแรงงานแต่ละสัญชาติ</Message.Header>
+                <Message.Header>
+                  <p className="titleName">
+                    จำนวนแรงงานแต่ละสัญชาติ
+                  </p>
+                </Message.Header>
               </Message>
               <NationalChart data = {dataPie} />
             </Grid.Column>
             <Grid.Column width={9}>
               <Message size='small' color='purple'>
-                <Message.Header>กราฟแสดงจำนวนแรงงานแต่ละเชื้อชาติในแต่ละพื้นที่ของกรุงเทพฯ</Message.Header>
+                <Message.Header>
+                  <p className="titleName">
+                    กราฟแสดงจำนวนแรงงานแต่ละเชื้อชาติในแต่ละพื้นที่ของกรุงเทพฯ
+                  </p>
+                </Message.Header>
               </Message>
               <AreaChart data = {dataBar} />
             </Grid.Column>
@@ -48,13 +57,20 @@ class Dashboard extends Component {
           <Grid.Row columns={2}>
             <Grid.Column width={10}>
               <Message size='small' color='purple'>
-                <Message.Header>กราฟแสดงความสัมพันธ์ของจำนวนแรงงานและผู้ติดตามในแต่ละปี</Message.Header>
-              </Message>
+                <Message.Header>
+                  <p className="titleName">
+                   กราฟแสดงความสัมพันธ์ของจำนวนแรงงานและผู้ติดตามในแต่ละปี
+                  </p></Message.Header>
+                </Message>
               <YearChart data = {dataLine} />
             </Grid.Column>
             <Grid.Column width={4}>
               <Message size='small' color='purple'>
-                <Message.Header>จำนวนโครงการที่ส่งและไม่ส่งข้อมูล</Message.Header>
+                <Message.Header>
+                  <p className="titleName">
+                    จำนวนโครงการที่ส่งและไม่ส่งข้อมูล
+                  </p>
+                </Message.Header>
               </Message>
               <SentChart data = {dataSentPie} />
             </Grid.Column>

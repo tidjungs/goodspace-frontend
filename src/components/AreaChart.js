@@ -14,10 +14,10 @@ const AreaChart = ({
         <YAxis/>
         <Tooltip/>
         <Legend />
-        <Bar dataKey="พม่า" stackId="a" fill="#c266ff" />
-        <Bar dataKey="ลาว" stackId="a" fill="#6600cc" />
-        <Bar dataKey="กัมพูชา" stackId="a" fill="#d9b3ff" />
-        <Bar dataKey="เวียดนาม" stackId="a" fill="#8000ff" />
+        <Bar dataKey="พม่า" stackId="a" fill="#8884e8" />
+        <Bar dataKey="ลาว" stackId="a" fill="#00C49F" />
+        <Bar dataKey="กัมพูชา" stackId="a" fill="#FFBB28" />
+        <Bar dataKey="เวียดนาม" stackId="a" fill="#FF8042" />
       </BarChart>
     </div>
   )
