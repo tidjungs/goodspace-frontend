@@ -8,14 +8,19 @@ class Parent extends Component {
     parentData: [
       { id: 1234, name: 'test test', folowersCount: 10, childrenCount: 20, nature: 'THAI' },
       { id: 1234, name: 'test test', folowersCount: 12, childrenCount: 21, nature: 'LAO' }
-    ]
+    ],
+    activePage: 1,
+    allPage: 10,
   }
+
+  onPageChange = (e, { activePage }) => this.setState({ activePage })
 
   onSearchClick = () => {
     console.log('search...');
   }
   
   render() {
+    const { parentData, activePage, allPage } = this.state;
     return (
       <div className="container">
         <NavBar path="/" />
@@ -25,8 +30,11 @@ class Parent extends Component {
           path="/"
         />
         <SearchTable
-          data={this.state.parentData}
+          data={parentData}
           path="/parent/"
+          activePage={activePage}
+          allPage={allPage}
+          onPageChange={this.onPageChange}
         />
       </div>
     );

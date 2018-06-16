@@ -8,14 +8,19 @@ class Camp extends Component {
     parentData: [
       { name: 'test test', location: 'xxx', goodSpace: true },
       { name: 'test test', location: 'yyy', goodSpace: false }
-    ]
+    ],
+    activePage: 1,
+    allPage: 10,
   }
+
+  onPageChange = (e, { activePage }) => this.setState({ activePage })
 
   onSearchClick = () => {
     console.log('search...');
   }
   
   render() {
+    const { parentData, activePage, allPage } = this.state;
     return (
       <div className="container">
         <NavBar path="/" />
@@ -25,8 +30,11 @@ class Camp extends Component {
           path="/"
         />
         <SearchTable
-          data={this.state.parentData}
+          data={parentData}
           path="/camp/"
+          activePage={activePage}
+          allPage={allPage}
+          onPageChange={this.onPageChange}
         />
       </div>
     );

@@ -6,12 +6,9 @@ import NavBar from '../components/NavBar';
 class Children extends Component {
   state = {
     childrenData: [
-      { id: 1234, name: 'test test', parent: 'abc', camp: 'A' },
-      { id: 1235, name: 'test test', parent: 'def, abc', camp: 'B' },
-      { id: 1235, name: 'test test', parent: 'def, abc', camp: 'B' },
-      { id: 1235, name: 'test test', parent: 'def, abc', camp: 'B' },
-      { id: 1235, name: 'test test', parent: 'def, abc', camp: 'B' },
-      { id: 1235, name: 'test test', parent: 'def, abc', camp: 'B' },
+      { id: 1234, name: 'test test', parent: 'abc', camp: 'A', goodSpace: true },
+      { id: 1235, name: 'test test', parent: 'def, abc', camp: 'B', goodSpace: true },
+      { id: 1235, name: 'test test', parent: 'def, abc', camp: 'B', goodSpace: false },
     ],
     activePage: 1,
     allPage: 10,
