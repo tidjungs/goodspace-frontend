@@ -26,6 +26,7 @@ class Parent extends Component {
         />
         <SearchTable
           data={this.state.parentData}
+          path="/parent/"
         />
       </div>
     );

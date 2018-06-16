@@ -26,6 +26,7 @@ class Camp extends Component {
         />
         <SearchTable
           data={this.state.parentData}
+          path="/camp/"
         />
       </div>
     );

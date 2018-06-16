@@ -26,6 +26,7 @@ class Children extends Component {
         />
         <SearchTable
           data={this.state.childrenData}
+          path="/children/"
         />
       </div>
     );

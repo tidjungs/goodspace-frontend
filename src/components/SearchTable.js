@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 const SearchTable = ({ 
   data,
+  path
 }) => {
   if (data.length === 0) {
     return <div>Not Found ...</div>
@@ -29,7 +30,7 @@ const SearchTable = ({
                 keys.map((key, indexKey) => (
                   key === 'name' ? (
                     <Table.Cell key={indexKey}>
-                      <Link to="/">{ obj[key] }</Link>
+                      <Link to={`${path}${obj.id}`}>{ obj[key] }</Link>
                     </Table.Cell>
                   ) : (
                     <Table.Cell key={indexKey}>
@@ -47,7 +48,8 @@ const SearchTable = ({
 }
 
 SearchTable.propTypes = {
-  data: PropTypes.array
+  data: PropTypes.array,
+  path: PropTypes.string,
 }
 
 
