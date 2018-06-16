@@ -4,7 +4,11 @@ import family from '../../images/family.png';
 import tent from '../../images/tent.png';
 import visitor from '../../images/visitor.png';
 import enginner from '../../images/engineer.png';
-import plusIcon from '../../images/add.svg';
+import pblue from '../../images/pblue.png';
+import pred from '../../images/pred.png';
+import pgreen from '../../images/pgreen.png';
+import pyellow from '../../images/pyellow.png';
+import ppurple from '../../images/ppurple.png';
 
 import './style.css';
 
@@ -16,7 +20,7 @@ const ManageCamapign = () => (
         <label className="manage-campaign-label">Add new Child</label>
       </div>
       <div className="manage-campaign-plus">
-        <img src={plusIcon} alt="" />
+        <img src={pblue} alt="" />
       </div>
     </div>
     <div>
@@ -25,7 +29,7 @@ const ManageCamapign = () => (
         <label className="manage-campaign-label">Add new Parent</label>
       </div>
       <div className="manage-campaign-plus">
-        <img src={plusIcon} alt="" />
+        <img src={pred} alt="" />
       </div>
     </div>
     <div>
@@ -34,7 +38,7 @@ const ManageCamapign = () => (
         <label className="manage-campaign-label">Add new Camp</label>
       </div>
       <div className="manage-campaign-plus">
-        <img src={plusIcon} alt="" />
+        <img src={pgreen} alt="" />
       </div>
     </div>
     <div>
@@ -43,7 +47,7 @@ const ManageCamapign = () => (
         <label className="manage-campaign-label">Add new Campaign</label>
       </div>
       <div className="manage-campaign-plus">
-        <img src={plusIcon} alt="" />
+        <img src={pyellow} alt="" />
       </div>
     </div>
     <div>
@@ -52,7 +56,7 @@ const ManageCamapign = () => (
         <label className="manage-campaign-label">Add new Suplier</label>
       </div>
       <div className="manage-campaign-plus">
-        <img src={plusIcon} alt="" />
+        <img src={ppurple} alt="" />
       </div>
     </div>
   </div>

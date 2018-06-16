@@ -7,6 +7,7 @@
 }
 
 .manage-campaign-card {
+  cursor: pointer;
   width: 230px;
   height: 250px;
   display: flex;
@@ -20,11 +21,18 @@
   transition: 0.3s;
 }
 
+.manage-campaign-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
+}
+
 .manage-campaign-plus {
   top: -30px;
   position: relative;
-  left: 85px;
-  width: 65px;
+  left: 90px;
+}
+
+.manage-campaign-plus > img {
+  width: 50px;
 }
 
 .manage-campaign-img {
