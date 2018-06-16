@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import { Table } from 'semantic-ui-react'
+import { Table, Menu,  Icon, Pagination } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
+import StatusCell from './StatusCell';
 
 const SearchTable = ({ 
   data,
-  path
+  path,
+  activePage,
+  allPage,
+  onPageChange,
 }) => {
   if (data.length === 0) {
     return <div>Not Found ...</div>
@@ -27,22 +31,40 @@ const SearchTable = ({
           data.map((obj, index) => (
             <Table.Row key={index}>
               {
-                keys.map((key, indexKey) => (
-                  key === 'name' ? (
+                keys.map((key, indexKey) => {
+                  if (key === 'name') {
+                    return (
                     <Table.Cell key={indexKey}>
-                      <Link to={`${path}${obj.id}`}>{ obj[key] }</Link>
+                      <Link to={`${path}${obj.id}`}><p>{ obj[key] }</p></Link>
                     </Table.Cell>
-                  ) : (
+                   );
+                  }
+                  
+                  if (key === 'goodSpace') {
+                    return <StatusCell key={indexKey} status={obj[key]} />
+                  }
+                  
+                  return (
                     <Table.Cell key={indexKey}>
-                      { obj[key] }
+                      <p>{ obj[key] }</p>
                     </Table.Cell>
-                  )
-                ))
+                  );
+                })
               }
             </Table.Row>
           ))
         }
       </Table.Body>
+      {
+        allPage > 1 &&
+        <Table.Footer>
+          <Table.Row>
+            <Table.HeaderCell colSpan={keys.length}>
+              <Pagination activePage={activePage} totalPages={allPage} onPageChange={onPageChange} />
+            </Table.HeaderCell>
+          </Table.Row>
+        </Table.Footer>
+      }
     </Table>
   )
 }
@@ -50,6 +72,9 @@ const SearchTable = ({
 SearchTable.propTypes = {
   data: PropTypes.array,
   path: PropTypes.string,
+  activePage: PropTypes.number,
+  allPage: PropTypes.number,
+  onPageChange: PropTypes.func,
 }
 
 

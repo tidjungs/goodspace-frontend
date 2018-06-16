@@ -28,7 +28,7 @@
 }
 
 .container {
-  padding-top: 100px; 
+  padding-top: 40px; 
   padding-left: 200px;
   padding-right: 200px;
 }
@@ -71,4 +71,20 @@
 
 a {
   cursor: pointer;
+}
+
+.background {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  bottom: 0;
+}
+
+@font-face {
+  font-family: myFirstFont;
+  src: url('./Raleway-Regular.ttf');
+}
+
+p, label, a, .title {
+  font-family: myFirstFont;
 }

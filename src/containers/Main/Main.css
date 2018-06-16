@@ -1,0 +1,52 @@
+.main-container {
+  text-align: center;
+  padding-top: 40px; 
+  padding-left: 300px;
+  padding-right: 300px;
+}
+
+.title {
+  font-size: 32px;
+  color: rgb(86, 99, 116);
+}
+
+.sub-title {
+  font-size: 20px;
+  color: grey;
+}
+
+.row-1 {
+  display: flex;
+  justify-content: space-between;
+}
+.row-2 {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 160px;
+  padding-right: 160px;
+}
+.main-button {
+  display: flex;
+  width: 150px;
+  flex-direction: column;
+  text-align: center;
+}
+
+.main-button-img {
+  width: 150px;
+}
+
+.main-button-img:hover {
+  opacity: 0.4;
+}
+
+.main-button-title {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: rgb(86, 99, 116);
+}
+
+.main-button-sub-title {
+  font-size: 16px;
+  color: grey;
+}

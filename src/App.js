@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Provider } from 'mobx-react'; 
 import './App.css';
-import { Provider } from 'mobx-react';
 import Store from './store';
-import Main from './containers/Main';
+import Main from './containers/Main/';
 import Dashboard from './containers/Dashboard';
 import Parent from './containers/Parent';
 import Children from './containers/Children';
@@ -14,6 +14,13 @@ import AddChildren from './containers/AddChildren';
 import AddParent from './containers/AddParent';
 import AddProject from './containers/AddProject';
 import AddSuplier from './containers/AddSuplier';
+import bg from './images/bg.png'
+
+const FooterRoute = ({ pathList }) => (
+  <div>
+    { pathList.map((path) => (<Route exact path={path} key={path} component={() => <img className="background" src={bg} alt="" />} />)) }
+  </div>
+)  
 
 class App extends Component {
   render() {
@@ -32,6 +39,7 @@ class App extends Component {
             <Route path="/add/parent" component={AddParent} />
             <Route path="/add/project" component={AddProject} />
             <Route path="/add/suplier" component={AddSuplier} />
+            <FooterRoute pathList={["/", "/parent", "/children", "/children/:childId", "/camp"]} />
           </div>
         </Router>
       </Provider>
