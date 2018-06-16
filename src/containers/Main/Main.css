@@ -36,6 +36,10 @@
   width: 150px;
 }
 
+.main-button-img:hover {
+  opacity: 0.4;
+}
+
 .main-button-title {
   font-size: 22px;
   margin-bottom: 10px;
