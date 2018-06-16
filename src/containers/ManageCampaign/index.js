@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBar from '../../components/NavBar';
 import baby from '../../images/baby.png';
 import family from '../../images/family.png';
 import tent from '../../images/tent.png';
