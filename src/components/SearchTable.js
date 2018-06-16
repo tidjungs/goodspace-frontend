@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import { Table, Menu,  Icon, Pagination } from 'semantic-ui-react'
+import { Table, Pagination } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
 import StatusCell from './StatusCell';
 

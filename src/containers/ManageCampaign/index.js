@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Icon } from 'semantic-ui-react';
+import React from 'react';
 import baby from '../../images/baby.png';
 import family from '../../images/family.png';
 import tent from '../../images/tent.png';
@@ -18,7 +17,6 @@ const ManageCamapign = () => (
       </div>
       <div className="manage-campaign-plus">
         <img src={plusIcon} alt="" />
-        {/* <Icon name="plus circle" color='teal' size="huge" /> */}
       </div>
     </div>
     <div>
