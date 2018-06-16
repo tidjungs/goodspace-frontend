@@ -5,6 +5,7 @@ import { Provider } from 'mobx-react';
 import Store from './store';
 import Main from './containers/Main';
 import Dashboard from './containers/Dashboard';
+import Parent from './containers/Parent';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
           <div>
             <Route exact path="/" component={Main} />
             <Route path="/dashboard" component={Dashboard} />
+            <Route path="/parent" component={Parent} />
           </div>
         </Router>
       </Provider>
