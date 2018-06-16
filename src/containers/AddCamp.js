@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Form, Radio, Button } from 'semantic-ui-react'
 import TextInput from '../components/TextInput';
 import ConfirmButton from '../components/ConfirmButton';
 import RadioButton from '../components/RadioButton';
@@ -7,44 +6,60 @@ import PageTitle from '../components/PageTitle';
 
 class Children extends Component {
   state = {
-    childrenData: [
-      { id: 1234, name: 'test test', parent: 'abc', camp: 'A' },
-      { id: 1235, name: 'test test', parent: 'def, abc', camp: 'B' }
-    ]
+    address: '',
+    province: '',
+    isGoodSpace: ''
   }
 
-  onSearchClick = () => {
-    console.log('search...');
+  onTextChange = (key) => e => {
+    this.setState({
+      [key]: e.target.value
+    })
   }
-  
+
+  handleChange = (e, { value }) => {
+    this.setState({ isGoodSpace: value })
+  }
+
   render() {
+    const {
+      address,
+      province,
+      isGoodSpace
+    } = this.state;
+    console.log(isGoodSpace);
     return (
       <div className="container">
         <PageTitle 
-          label = 'Add New Camp'
+          label="Add New Camp"
         />
-        <div class="mt-1">
+        <div className="mt-1">
           <TextInput 
-            label = 'Home'
-            iconName = 'home'
-            placeholder = 'Address...'
+            label="Home"
+            iconName="home"
+            placeholder="Address..."
+            value={address}
+            onTextChange={this.onTextChange('address')}
           />
         </div>
-        <div class="mt-1">
+        <div className="mt-1">
           <TextInput 
-            label = 'Province'
-            iconName = 'map pin'
-            placeholder = 'Provinces..'
+            label="Province"
+            iconName="map pin"
+            placeholder="Provinces..."
+            value={province}
+            onTextChange={this.onTextChange('province')}
           />
         </div>
-        <div class="mt-1">
+        <div className="mt-1">
           <RadioButton 
-            label = 'Has Good Space?'
-            choice1 = 'Yes'
-            choice2 = 'No'
+            label="Has Good Space?"
+            choice={["Yes", "No"]}
+            value={isGoodSpace}
+            onChange={this.handleChange}
           />
         </div>
-        <div class="mt-1">
+        <div className="mt-1">
           <ConfirmButton />
         </div>
       </div>
