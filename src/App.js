@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from 'mobx-react'; 
 import './App.css';
 import Store from './store';
@@ -14,7 +14,7 @@ import bg from './images/bg.png'
 
 const FooterRoute = ({ pathList }) => (
   <div>
-    { pathList.map((path) => (<Route path={path} component={() => <img className="background" src={bg} alt="" />} />)) }
+    { pathList.map((path) => (<Route exact path={path} key={path} component={() => <img className="background" src={bg} alt="" />} />)) }
   </div>
 )  
 
@@ -31,7 +31,7 @@ class App extends Component {
             <Route path="/children/:childId" component={ChildrenDetail} />
             <Route path="/camp" component={Camp} />
             <Route path="/add/camp" component={AddCamp} />
-            <FooterRoute pathList={["/", "/dashboard", "/parent"]} />
+            <FooterRoute pathList={["/", "/parent", "/children", "/children/:childId", "/camp"]} />
           </div>
         </Router>
       </Provider>

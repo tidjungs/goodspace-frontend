@@ -80,4 +80,11 @@ a {
   bottom: 0;
 }
 
+@font-face {
+  font-family: myFirstFont;
+  src: url('./Raleway-Regular.ttf');
+}
 
+p, label, a, .title {
+  font-family: myFirstFont;
+}

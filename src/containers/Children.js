@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SearchBox from '../components/SearchBox';
 import SearchTable from '../components/SearchTable';
 import NavBar from '../components/NavBar';
+import SelectProvince from '../components/SelectProvince';
 
 class Children extends Component {
   state = {
@@ -37,6 +38,7 @@ class Children extends Component {
           allPage={allPage}
           onPageChange={this.onPageChange}
         />
+        <SelectProvince />
       </div>
     );
   }

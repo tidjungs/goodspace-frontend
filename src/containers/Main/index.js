@@ -13,6 +13,7 @@ class Main extends Component {
       <div>
         <div className="main-container">
           <label className="title">Good Space</label><br />
+          <div className="mt-1" />
           <label className="sub-title">ajsdhjhkdhjqhefjhejkfhkqehfkh</label>
           <div className="mt-2" />
           <div className="row-1">

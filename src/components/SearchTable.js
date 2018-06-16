@@ -35,7 +35,7 @@ const SearchTable = ({
                   if (key === 'name') {
                     return (
                     <Table.Cell key={indexKey}>
-                      <Link to={`${path}${obj.id}`}>{ obj[key] }</Link>
+                      <Link to={`${path}${obj.id}`}><p>{ obj[key] }</p></Link>
                     </Table.Cell>
                    );
                   }
@@ -46,7 +46,7 @@ const SearchTable = ({
                   
                   return (
                     <Table.Cell key={indexKey}>
-                      { obj[key] }
+                      <p>{ obj[key] }</p>
                     </Table.Cell>
                   );
                 })
