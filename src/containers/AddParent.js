@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Form, Radio, Button } from 'semantic-ui-react'
 import TextInput from '../components/TextInput';
 import ConfirmButton from '../components/ConfirmButton';
 import RadioButton from '../components/RadioButton';
@@ -7,121 +6,178 @@ import PageTitle from '../components/PageTitle';
 
 class Children extends Component {
   state = {
-    childrenData: [
-      { id: 1234, name: 'test test', parent: 'abc', camp: 'A' },
-      { id: 1235, name: 'test test', parent: 'def, abc', camp: 'B' }
-    ]
+    name: '',
+    gender: '',
+    phone: '',
+    IDNumber: '',
+    nationality: '',
+    projectName: '',
+    suplierName: '',
+    camp: '',
+    hasFollower: '',
+    husband: '',
+    wife: '',
+    children: '',
+    childrenNumber: '',
+    othersFollower: ''
   }
 
-  onSearchClick = () => {
-    console.log('search...');
+  onTextChange = (key) => e => {
+    this.setState({
+      [key]: e.target.value
+    })
+  }
+
+  handleChange = (key) => (e, { value }) => {
+    this.setState({ 
+      [key]: value 
+    })
   }
   
   render() {
+    const {
+      name,
+      gender,
+      phone,
+      IDNumber,
+      nationality,
+      projectName,
+      suplierName,
+      camp,
+      hasFollower,
+      husband,
+      wife,
+      children,
+      childrenNumber,
+      othersFollower,
+    } = this.state;
     return (
       <div className="container">
         <PageTitle 
-          label = 'Add New Parent'
+          label="Add New Parent"
         />
-        <div class="mt-1">
+        <div className="mt-1">
           <TextInput 
-            label = 'Name'
-            iconName = 'user'
-            placeholder = 'Name...'
+            label="Name"
+            iconName="user"
+            placeholder="Name..."
+            value={name}
+            onTextChange={this.onTextChange('name')}
           />
         </div>
-        <div class="mt-1">
+        <div className="mt-1">
           <RadioButton 
-            label = 'Gender'
-            choice1 = 'Male'
-            choice2 = 'Female'
+            label="Gender"
+            choice={["Male", "Female"]}
+            value={gender}
+            onChange={this.handleChange('gender')}
           />
         </div>
-        <div class="mt-1">
+        <div className="mt-1">
           <TextInput 
-            label = 'Phone'
-            iconName = 'phone'
-            placeholder = 'Phone...'
+            label="Phone"
+            iconName="phone"
+            placeholder="Phone..."
+            value={phone}
+            onTextChange={this.onTextChange('phone')}
           />
         </div>
-        <div class="mt-1">
+        <div className="mt-1">
           <TextInput 
-            label = 'ID Number'
-            iconName = 'address card'
-            placeholder = 'ID Number...'
+            label="ID Number"
+            iconName="address card"
+            placeholder="ID Number..."
+            value={IDNumber}
+            onTextChange={this.onTextChange('IDNumber')}
           />
         </div>
-        <div class="mt-1">
+        <div className="mt-1">
           <TextInput 
-            label = 'Nationality'
-            iconName = 'map marker alternate'
-            placeholder = 'Nationality...'
+            label="Nationality"
+            iconName="map marker alternate"
+            placeholder="Nationality..."
+            value={nationality}
+            onTextChange={this.onTextChange('nationality')}
           />
         </div>
-        <div class="mt-1">
+        <div className="mt-1">
           <TextInput 
-            label = 'Project name'
-            iconName = 'building'
-            placeholder = 'Project name...'
+            label="Project name"
+            iconName="building"
+            placeholder="Project name..."
+            value={projectName}
+            onTextChange={this.onTextChange('projectName')}
           />
         </div>
-        <div class="mt-1">
+        <div className="mt-1">
           <TextInput 
-            label = 'Suplier name'
-            iconName = 'handshake'
-            placeholder = 'Suplier name...'
+            label="Suplier name"
+            iconName="handshake"
+            placeholder="Suplier name..."
+            value={suplierName}
+            onTextChange={this.onTextChange('suplierName')}
           />
         </div>
-        <div class="mt-1">
+        <div className="mt-1">
           <TextInput 
-            label = 'Camp'
-            iconName = 'home'
-            placeholder = 'Camp...'
+            label="Camp"
+            iconName="home"
+            placeholder="Camp..."
+            value={camp}
+            onTextChange={this.onTextChange('camp')}
           />
         </div>
-        <div class="mt-1">
+        <div className="mt-1">
           <RadioButton 
-            label = 'Has followers'
-            choice1 = 'Yes'
-            choice2 = 'No'
+            label="Has followers"
+            choice={["Yes", "No"]}
+            value={hasFollower}
+            onChange={this.handleChange('hasFollower')}
           />
         </div>
-        <div class="mt-1">
+        <div className="mt-1">
           <RadioButton 
-            label = 'Husband'
-            choice1 = 'Yes'
-            choice2 = 'No'
+            label="Husband"
+            choice={["Yes", "No"]}
+            value={husband}
+            onChange={this.handleChange('husband')}
           />
         </div>
-        <div class="mt-1">
+        <div className="mt-1">
           <RadioButton 
-            label = 'Wife'
-            choice1 = 'Yes'
-            choice2 = 'No'
+            label="Wife"
+            choice={["Yes", "No"]}
+            value={wife}
+            onChange={this.handleChange('wife')}
           />
         </div>
-        <div class="mt-1">
+        <div className="mt-1">
           <RadioButton 
-            label = 'Children'
-            choice1 = 'Yes'
-            choice2 = 'No'
+            label="Children"
+            choice={["Yes", "No"]}
+            value={children}
+            onChange={this.handleChange('children')}
           />
         </div>
-        <div class="mt-1">
+        <div className="mt-1">
           <TextInput 
-            label = 'How many children ?'
-            iconName = 'child'
-            placeholder = 'number of children...'
+            label="How many children ?"
+            iconName="child"
+            placeholder="number of children..."
+            value={childrenNumber}
+            onTextChange={this.onTextChange('childrenNumber')}
           />
         </div>
-        <div class="mt-1">
+        <div className="mt-1">
           <TextInput 
-            label = 'Other followers'
-            iconName = 'users'
-            placeholder = 'relation...'
+            label="Other followers"
+            iconName="users"
+            placeholder="relation..."
+            value={othersFollower}
+            onTextChange={this.onTextChange('othersFollower')}
           />
         </div>
-        <div class="mt-1">
+        <div className="mt-1">
           <ConfirmButton />
         </div>
       </div>
