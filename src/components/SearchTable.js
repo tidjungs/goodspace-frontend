@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import { Table } from 'semantic-ui-react'
+import { Table, Menu,  Icon, Pagination } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
 
 const SearchTable = ({ 
   data,
-  path
+  path,
+  activePage,
+  allPage,
+  onPageChange,
 }) => {
   if (data.length === 0) {
     return <div>Not Found ...</div>
@@ -43,6 +46,13 @@ const SearchTable = ({
           ))
         }
       </Table.Body>
+      <Table.Footer>
+        <Table.Row>
+          <Table.HeaderCell colSpan={keys.length}>
+            <Pagination activePage={activePage} totalPages={allPage} onPageChange={onPageChange} />
+          </Table.HeaderCell>
+        </Table.Row>
+      </Table.Footer>
     </Table>
   )
 }
@@ -50,6 +60,9 @@ const SearchTable = ({
 SearchTable.propTypes = {
   data: PropTypes.array,
   path: PropTypes.string,
+  activePage: PropTypes.number,
+  allPage: PropTypes.number,
+  onPageChange: PropTypes.func,
 }
 
 

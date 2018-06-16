@@ -7,15 +7,24 @@ class Children extends Component {
   state = {
     childrenData: [
       { id: 1234, name: 'test test', parent: 'abc', camp: 'A' },
-      { id: 1235, name: 'test test', parent: 'def, abc', camp: 'B' }
-    ]
+      { id: 1235, name: 'test test', parent: 'def, abc', camp: 'B' },
+      { id: 1235, name: 'test test', parent: 'def, abc', camp: 'B' },
+      { id: 1235, name: 'test test', parent: 'def, abc', camp: 'B' },
+      { id: 1235, name: 'test test', parent: 'def, abc', camp: 'B' },
+      { id: 1235, name: 'test test', parent: 'def, abc', camp: 'B' },
+    ],
+    activePage: 1,
+    allPage: 10,
   }
+
+  onPageChange = (e, { activePage }) => this.setState({ activePage })
 
   onSearchClick = () => {
     console.log('search...');
   }
   
   render() {
+    const { childrenData, activePage, allPage } = this.state;
     return (
       <div className="container">
         <NavBar path="/" />
@@ -25,8 +34,11 @@ class Children extends Component {
           path="/"
         />
         <SearchTable
-          data={this.state.childrenData}
+          data={childrenData}
           path="/children/"
+          activePage={activePage}
+          allPage={allPage}
+          onPageChange={this.onPageChange}
         />
       </div>
     );

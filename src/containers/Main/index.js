@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import bg from '../../images/bg.png'
 import childrenImg from '../../images/child.png';
 import parentImg from '../../images/parents.png';
 import campImg from '../../images/camp.png';
@@ -51,7 +50,6 @@ class Main extends Component {
             />
           </div>
         </div>
-        <img className="background" src={bg} alt="" />
       </div>
     );
   }
