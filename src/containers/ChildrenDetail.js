@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NavBar from '../components/NavBar';
 import girlImg from '../images/girl.png';
 import { Image, Grid, Icon, Table } from 'semantic-ui-react'
+import { getChildrenById } from '../utils/api';
 import '../App.css'
 
 class ChildrenDetail extends Component {
@@ -9,18 +10,24 @@ class ChildrenDetail extends Component {
     childrenData: { id: 1234, name: 'test test', parent: 'abc', camp: 'A' },
   }
 
+  async componentDidMount() {
+    const res = await getChildrenById(this.props.match.params.childId);
+    this.setState({ childrenData: res.data });
+  }
+
   onSearchClick = () => {
     console.log('search...');
   }
   
   render() {
+    const { childrenData } = this.state;
     return (
       <div className="container">
         <NavBar path="/children" />
         <div className="grid-center">
           <Image src={girlImg} size="tiny" circular style={{margin:"auto"}}/>
           {/* <label>{`child name: ${this.props.match.params.childId}`}</label> */}
-          <h1>-Monpriya Tammavong-</h1>
+          <h1>{childrenData.name}</h1>
           <br />
         </div>
         <div>

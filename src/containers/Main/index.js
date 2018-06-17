@@ -38,7 +38,7 @@ const Main = () => (
         <MainButton 
           img={manageCampaignImg}
           title="Manage Campaign"
-          subTitle="manage children, parent, camp, project"
+          subTitle="management in Good Space"
           path="/campaign"
         />
         <MainButton

@@ -12,6 +12,7 @@ import { getProject, postCamp } from '../utils/api';
 class AddCamp extends Component {
   state = {
     projectData: [],
+    name: '',
     project: '',
     address: '',
     province: '',
@@ -47,8 +48,9 @@ class AddCamp extends Component {
   }
 
   onConfirmClick = async () => {
-    const { project, address, province, isGoodSpace } = this.state;
+    const { name, project, address, province, isGoodSpace } = this.state;
     await postCamp({
+      name,
       location: address,
       province,
       has_goodspace: isGoodSpace,
@@ -63,6 +65,7 @@ class AddCamp extends Component {
 
   render() {
     const {
+      name,
       projectData,
       address,
       isGoodSpace
@@ -73,6 +76,14 @@ class AddCamp extends Component {
         <PageTitle 
           label="Add New Camp"
         />
+        <div className="mt-1">
+          <TextInput 
+            label="ชื่อ"
+            placeholder="กรอกชื่อแคมป์..."
+            value={name}
+            onTextChange={this.onTextChange('name')}
+          />
+        </div>
         <div className="mt-1">
           <b><label>เลือกโครงการ</label></b><br />
           <Input list='projects' placeholder='เลือกโครงการ' onChange={this.onProjectChange} />
