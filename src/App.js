@@ -6,6 +6,7 @@ import Store from './store';
 import Main from './containers/Main/';
 import Dashboard from './containers/Dashboard';
 import Parent from './containers/Parent';
+import ParentDetail from './containers/ParentDetail';
 import Children from './containers/Children';
 import ChildrenDetail from './containers/ChildrenDetail';
 import Camp from './containers/Camp';
@@ -32,6 +33,7 @@ class App extends Component {
             <Route exact path="/" component={Main} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/parent" component={Parent} />
+            <Route exact path="/parent/:parentID" component={ParentDetail} />
             <Route exact path="/children" component={Children} />
             <Route exact path="/children/:childId" component={ChildrenDetail} />
             <Route exact path="/camp" component={Camp} />
