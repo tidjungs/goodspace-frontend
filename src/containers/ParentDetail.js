@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import NavBar from '../components/NavBar';
+import SearchTable from '../components/SearchTable';
 import girlImg from '../images/girl.png';
 import { Image, Grid, Icon, Table } from 'semantic-ui-react'
 import '../App.css'
 
 class ChildrenDetail extends Component {
   state = {
-    childrenData: { id: 1234, name: 'test test', parent: 'abc', camp: 'A' },
+    childrenData: [
+      { id: 1234, name: 'test test', parent: 'abc', camp: 'A', goodSpace: true },
+      { id: 1235, name: 'test test', parent: 'def, abc', camp: 'B', goodSpace: true },
+      { id: 1235, name: 'test test', parent: 'def, abc', camp: 'B', goodSpace: false },
+    ],
+    activePage: 1,
+    allPage: 10,
   }
 
   onSearchClick = () => {
@@ -14,6 +21,7 @@ class ChildrenDetail extends Component {
   }
   
   render() {
+    const { childrenData, activePage, allPage } = this.state;
     return (
       <div className="container">
         <NavBar path="/parent" />
@@ -79,36 +87,13 @@ class ChildrenDetail extends Component {
               </Grid.Column>
             </Grid.Row>
           </Grid>
-          <Table celled padded>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>Name</Table.HeaderCell>
-                <Table.HeaderCell>Children ID</Table.HeaderCell>
-                <Table.HeaderCell>Camp</Table.HeaderCell>
-                <Table.HeaderCell>Good Space</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
-              <Table.Row> 
-                <Table.Cell>Monpriya</Table.Cell>
-                <Table.Cell>1234</Table.Cell>
-                <Table.Cell>บางเขน</Table.Cell>
-                <Table.Cell>เข้าร่วม</Table.Cell>
-              </Table.Row>
-              <Table.Row> 
-                <Table.Cell>Apichaya</Table.Cell>
-                <Table.Cell>1123</Table.Cell>
-                <Table.Cell>บางเขน</Table.Cell>
-                <Table.Cell>เข้าร่วม</Table.Cell>
-              </Table.Row>
-              <Table.Row> 
-                <Table.Cell>Monthol</Table.Cell>
-                <Table.Cell>1212</Table.Cell>
-                <Table.Cell>บางเขน</Table.Cell>
-                <Table.Cell>ไม่เข้าร่วม</Table.Cell>
-              </Table.Row>
-            </Table.Body>
-          </Table>
+          <SearchTable
+            data={childrenData}
+            path="/children/"
+            activePage={activePage}
+            allPage={allPage}
+            onPageChange={this.onPageChange}
+          />
           <br />
         </div>
       </div>
