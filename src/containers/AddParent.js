@@ -62,7 +62,7 @@ class Children extends Component {
   }
 
   onConfirmClick = async () => {
-    const res = await postParent({
+    await postParent({
       id: parseInt(this.state.IDNumber, 10),
       name: this.state.name,
       tel: this.state.phone,

@@ -1,9 +1,6 @@
 import axios from 'axios';
 const API_HOST = 'http://localhost:8000'
 
-export const getChildren = async () =>  await axios.get(`${API_HOST}/children`);
-
-export const getChildrenById = async (id) => await axios.get(`${API_HOST}/children/${id}`);
 
 export const getProject = async () => await axios.get(`${API_HOST}/projects`);
 
@@ -37,3 +34,6 @@ export const postCamp = async ({ location, province, has_goodspace, project_id }
 export const getParent = async () => await axios.get(`${API_HOST}/workers`);
 export const postParent = async (payload) => await axios.post(`${API_HOST}/workers`, payload);
 
+export const getChildren = async () => await axios.get(`${API_HOST}/children`);
+export const getChildrenById = async (id) => await axios.get(`${API_HOST}/children/${id}`);
+export const postChildren = async (payload) => await axios.post(`${API_HOST}/children`, payload);

@@ -7,7 +7,7 @@ import RadioButton from '../components/RadioButton';
 import PageTitle from '../components/PageTitle';
 import SelectProvince from '../components/SelectProvince';
 import { getProject, postCamp } from '../utils/api';
-import NavBar from '../components/NavBar';
+// import NavBar from '../components/NavBar';
 
 class AddCamp extends Component {
   state = {
@@ -48,7 +48,7 @@ class AddCamp extends Component {
 
   onConfirmClick = async () => {
     const { project, address, province, isGoodSpace } = this.state;
-    const res = await postCamp({
+    await postCamp({
       location: address,
       province,
       has_goodspace: isGoodSpace,

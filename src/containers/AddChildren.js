@@ -1,30 +1,48 @@
 import React, { Component } from 'react';
+import { Input, Icon } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+import moment from 'moment';
 import TextInput from '../components/TextInput';
 import ConfirmButton from '../components/ConfirmButton';
 import RadioButton from '../components/RadioButton';
 import PageTitle from '../components/PageTitle';
-import NavBar from '../components/NavBar';
+// import NavBar from '../components/NavBar';
 import { DateInput } from 'semantic-ui-calendar-react';
+import { getParent, postChildren } from '../utils/api';
 
 class Children extends Component {
   state = {
     name: '',
-    gender: '',
-    parentName: '',
+    gender: 'Male',
+    parent: '',
     IDNumber: '',
     birthdate: '',
     age: '',
     nationality: '',
-    stayStatus: '',
-    hasSchool: '',
+    stayStatus: 'Temporary',
+    hasSchool: 'Yes',
     grade: '',
     schoolName: '',
-    vaccine: '',
+    vaccine: 'Yes',
     pastVaccine: '',
     assignDate: '',
-    takeDate: ''
+    takeDate: '',
+    parentData: [],
   }
   
+  async componentDidMount() {
+    const res = await getParent();
+    this.setState({
+      parentData: res.data.data
+    })
+  }
+ 
+  onParentChange = (e, { value }) => {
+    this.setState({
+      parent: value.split('-')[1],
+    });
+  }
+
   onTextChange = (key) => e => {
     this.setState({
       [key]: e.target.value
@@ -43,11 +61,27 @@ class Children extends Component {
     }
   }
 
+
+  onConfirmClick = async () => {
+    await postChildren({
+      id: parseInt(this.state.IDNumber, 10),
+      name: this.state.name,
+      birthdate: moment(this.state.birthdate).unix(),
+      nationality: this.state.nationality,
+      sex: this.state.gender,
+      parent_id: parseInt(this.state.parent, 10)
+    });
+    this.props.history.goBack()
+  }
+
+  onCancelClick = () => {
+    this.props.history.goBack()
+  }
+
   render() {
     const {
       name,
       gender,
-      parentName,
       IDNumber,
       birthdate,
       age,
@@ -59,11 +93,11 @@ class Children extends Component {
       vaccine,
       pastVaccine,
       assignDate,
-      takeDate
+      takeDate,
+      parentData,
     } = this.state;
     return (
       <div className="container">
-        <NavBar path="/children" />
         <PageTitle 
           label="Add New Children"
         />
@@ -85,13 +119,16 @@ class Children extends Component {
           />
         </div>
         <div className="mt-1">
-          <TextInput 
-            label="Parents Name"
-            iconName="users"
-            placeholder="Parent Name..."
-            value={parentName}
-            onTextChange={this.onTextChange('parentName')}
-          />
+          <label>Parent</label><br />
+          <Input list='parents' placeholder='Parent...' onChange={this.onParentChange} />
+          <Link to="/add/parent"><Icon name="plus circle" size="big" color="red" /></Link>
+          <datalist id='parents'>
+            {
+              parentData.map(p =>
+                <option value={p.name + '-' + p.id} key={p.id} />
+              )
+            }
+          </datalist>
         </div>
         <div className="mt-1">
           <TextInput 
@@ -205,7 +242,10 @@ class Children extends Component {
             onChange={this.handleDateChange} />
         </div>
         <div className="mt-1">
-          <ConfirmButton />
+          <ConfirmButton 
+            onConfirmClick={this.onConfirmClick}
+            onCancelClick={this.onCancelClick}
+          />
         </div>
       </div>
     );

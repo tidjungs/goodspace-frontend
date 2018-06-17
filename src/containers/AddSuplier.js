@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import TextInput from '../components/TextInput';
 import ConfirmButton from '../components/ConfirmButton';
 import PageTitle from '../components/PageTitle';
-import NavBar from '../components/NavBar';
+// import NavBar from '../components/NavBar';
 import { getProject } from '../utils/api';
 
 class Children extends Component {

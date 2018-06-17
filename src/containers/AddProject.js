@@ -5,7 +5,7 @@ import ConfirmButton from '../components/ConfirmButton';
 import PageTitle from '../components/PageTitle';
 import { DatesRangeInput } from 'semantic-ui-calendar-react';
 import { postProject } from '../utils/api';
-import NavBar from '../components/NavBar';
+// import NavBar from '../components/NavBar';
 
 class AddProject extends Component {
   state = {
@@ -32,7 +32,7 @@ class AddProject extends Component {
     const { projectID, projectName, constructionDuration, pmName, email } = this.state;
     const startDate = moment(constructionDuration.split(' ')[0]).unix();
     const endDate = moment(constructionDuration.split(' ')[2]).unix();
-    const res = await postProject({
+    await postProject({
       id: projectID,
       nameTH: projectName,
       startDate,
