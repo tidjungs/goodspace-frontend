@@ -11,7 +11,6 @@ class AddProject extends Component {
   state = {
     projectID: '',
     projectName: '',
-    province: '',
     constructionDuration: '',
     pmName: '',
     email: ''
@@ -29,14 +28,8 @@ class AddProject extends Component {
     }
   }
 
-  onProvinceChange = (e, { value }) => {
-    this.setState({
-      province: value,
-    });
-  }
-
   onConfirmClick = async () => {
-    const { projectID, province, constructionDuration, pmName, email } = this.state;
+    const { projectID, constructionDuration, pmName, email } = this.state;
     const startDate = moment(constructionDuration.split(' ')[0]).unix();
     const endDate = moment(constructionDuration.split(' ')[2]).unix();
     // const res = await postProject({
@@ -87,10 +80,6 @@ class AddProject extends Component {
             value={projectName}
             onTextChange={this.onTextChange('projectName')}
           />
-        </div>
-        <div className="mt-1">
-          <label>จังหวัด</label><br />
-          <SelectProvince onChange={this.onProvinceChange} />
         </div>
         <div className="mt-1">
           <div className="mr-1">    

@@ -33,15 +33,17 @@ const ManageCamapign = () => (
         <img src={pred} alt="" />
       </div>
     </div>
-    <div>
-      <div className="manage-campaign-card">
-        <img className="manage-campaign-img" src={tent} alt="" />
-        <label className="manage-campaign-label">Add new Camp</label>
+      <div>
+        <Link to="/add/camp">
+          <div className="manage-campaign-card">
+            <img className="manage-campaign-img" src={tent} alt="" />
+            <label className="manage-campaign-label">Add new Camp</label>
+          </div>
+          <div className="manage-campaign-plus">
+            <img src={pgreen} alt="" />
+          </div>
+        </Link>
       </div>
-      <div className="manage-campaign-plus">
-        <img src={pgreen} alt="" />
-      </div>
-    </div>
     <div>
       <Link to="/add/project">
         <div className="manage-campaign-card">

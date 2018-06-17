@@ -1,14 +1,37 @@
 import React, { Component } from 'react';
+import { Input } from 'semantic-ui-react';
 import TextInput from '../components/TextInput';
 import ConfirmButton from '../components/ConfirmButton';
 import RadioButton from '../components/RadioButton';
 import PageTitle from '../components/PageTitle';
+import SelectProvince from '../components/SelectProvince';
+import { getProject } from '../utils/api';
 
-class Children extends Component {
+class AddCamp extends Component {
   state = {
+    projectData: [],
+    project: '',
     address: '',
     province: '',
-    isGoodSpace: ''
+    isGoodSpace: 'Yes'
+  }
+
+  async componentDidMount() {
+    const res = await getProject();
+    this.setState({
+      projectData: res.data
+    });
+  }
+
+  onProvinceChange = (e, { value }) => {
+    this.setState({
+      project: value,
+    });
+  }
+  onProvinceChange = (e, { value }) => {
+    this.setState({
+      province: value,
+    });
   }
 
   onTextChange = (key) => e => {
@@ -23,16 +46,27 @@ class Children extends Component {
 
   render() {
     const {
+      projectData,
       address,
-      province,
       isGoodSpace
     } = this.state;
-    console.log(isGoodSpace);
+    console.log(projectData);
     return (
       <div className="container">
         <PageTitle 
           label="Add New Camp"
         />
+        <div className="mt-1">
+          <label>เลือกโครงการ</label>
+          <Input list='projects' placeholder='เลือกโครงการ' />
+          <datalist id='projects'>
+            {
+              projectData.map(p =>
+                <option value={p.name_th} />
+              )
+            }
+          </datalist>
+        </div>
         <div className="mt-1">
           <TextInput 
             label="Home"
@@ -43,13 +77,8 @@ class Children extends Component {
           />
         </div>
         <div className="mt-1">
-          <TextInput 
-            label="Province"
-            iconName="map pin"
-            placeholder="Provinces..."
-            value={province}
-            onTextChange={this.onTextChange('province')}
-          />
+          <label>จังหวัด</label><br />
+          <SelectProvince onChange={this.onProvinceChange} />
         </div>
         <div className="mt-1">
           <RadioButton 
@@ -67,4 +96,4 @@ class Children extends Component {
   }
 }
 
-export default Children;
+export default AddCamp;
