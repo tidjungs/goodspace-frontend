@@ -74,7 +74,7 @@ a {
 }
 
 .background {
-  position: absolute;
+  position: fixed;
   z-index: -1;
   width: 100%;
   bottom: 0;
@@ -104,3 +104,12 @@ p, label, a, .title {
   font-size: 30px;
 }
 
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.grid-center {
+  display: grid;
+  justify-content: center;
+}
