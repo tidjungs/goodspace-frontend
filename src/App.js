@@ -45,7 +45,7 @@ class App extends Component {
             <Route path="/add/parent" component={AddParent} />
             <Route path="/add/project" component={AddProject} />
             <Route path="/add/suplier" component={AddSuplier} />
-            <FooterRoute pathList={["/", "/parent", "/parent/:parentId", "/children", "/children/:childId", "/camp", "/camp/:campId", "/campaign"]} />
+            <FooterRoute pathList={["/", "/parent", "/parent/:parentId", "/children", "/children/:childId", "/camp", "/camp/:campId", "/campaign", "/add/camp", "/add/children", "/add/parent", "/add/project", "/add/suplier"]} />
           </div>
         </Router>
       </Provider>
