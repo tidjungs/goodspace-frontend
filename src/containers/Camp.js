@@ -2,15 +2,25 @@ import React, { Component } from 'react';
 import SearchBox from '../components/SearchBox';
 import SearchTable from '../components/SearchTable';
 import NavBar from '../components/NavBar';
+import { getCamp } from '../utils/api';
+import { campAdapter } from '../utils/adapter';
 
 class Camp extends Component {
   state = {
-    parentData: [
-      { name: 'test test', location: 'xxx', goodSpace: true },
-      { name: 'test test', location: 'yyy', goodSpace: false }
+    campData: [
+      { id: 1, name: 'test test', location: 'xxx', goodSpace: true },
+      { id: 2, name: 'test test', location: 'yyy', goodSpace: false }
     ],
     activePage: 1,
-    allPage: 10,
+    allPage: 1,
+  }
+
+  async componentDidMount() {
+    const res = await getCamp();
+    this.setState({
+      campData: campAdapter(res.data.data),
+      allPage: Math.ceil(res.data.count / 6),
+    });
   }
 
   onPageChange = (e, { activePage }) => this.setState({ activePage })
@@ -20,7 +30,7 @@ class Camp extends Component {
   }
   
   render() {
-    const { parentData, activePage, allPage } = this.state;
+    const { campData, activePage, allPage } = this.state;
     return (
       <div className="container">
         <NavBar path="/" />
@@ -30,7 +40,7 @@ class Camp extends Component {
           path="/add/camp"
         />
         <SearchTable
-          data={parentData}
+          data={campData}
           path="/camp/"
           activePage={activePage}
           allPage={allPage}
