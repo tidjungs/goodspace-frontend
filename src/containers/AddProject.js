@@ -64,18 +64,18 @@ class AddProject extends Component {
         />
         <div className="mt-1">
           <TextInput 
-            label="Project ID"
+            label="รหัสโครงการ"
             iconName="id card"
-            placeholder="project ID..."
+            placeholder="รหัสโครงการ..."
             value={projectID}
             onTextChange={this.onTextChange('projectID')}
           />
         </div>
         <div className="mt-1">
           <TextInput 
-            label="Project Name"
+            label="ชื่อโครงการ"
             iconName="building"
-            placeholder="project name..."
+            placeholder="ชื่อโครงการ..."
             value={projectName}
             onTextChange={this.onTextChange('projectName')}
           />
@@ -85,24 +85,24 @@ class AddProject extends Component {
             <b><label>Construction Duration</label></b>
           </div>
           <DatesRangeInput
-            name="constructionDuration"
-            placeholder="From - To"
+            name="ระยะเวลาที่ก่อสร้าง"
+            placeholder="เริ่ม - จบ"
             value={constructionDuration}
             iconPosition="left"
             onChange={this.handleDateChange} />
         </div>
         <div className="mt-1">
           <TextInput 
-            label="Project Manager"
+            label="ชื่อผู้ควบคุมโครงการ"
             iconName="user"
-            placeholder="project manager..."
+            placeholder="ชื่อโครงการ..."
             value={pmName}
             onTextChange={this.onTextChange('pmName')}
           />
         </div>
         <div className="mt-1">
           <TextInput 
-            label="Email"
+            label="Email ของผู้ควบคุมโครงการ"
             iconName="at"
             placeholder="email..."
             value={email}

@@ -100,51 +100,51 @@ class Children extends Component {
         />
         <div className="mt-1">
           <TextInput 
-            label="Name"
+            label="ชื่อ"
             iconName="user"
-            placeholder="Name..."
+            placeholder="ชื่อ..."
             value={name}
             onTextChange={this.onTextChange('name')}
           />
         </div>
         <div className="mt-1">
           <RadioButton 
-            label="Gender"
-            choice={["Male", "Female"]}
+            label="เพศ"
+            choice={["ชาย", "หญิง"]}
             value={gender}
             onChange={this.handleChange('gender')}
           />
         </div>
         <div className="mt-1">
           <TextInput 
-            label="Phone"
+            label="เบอร์โทรศัพท์"
             iconName="phone"
-            placeholder="Phone..."
+            placeholder="กรอกเบอร์..."
             value={phone}
             onTextChange={this.onTextChange('phone')}
           />
         </div>
         <div className="mt-1">
           <TextInput 
-            label="ID Number"
+            label="รหัสประจำตัว"
             iconName="address card"
-            placeholder="ID Number..."
+            placeholder="รหัสประจำตัว..."
             value={IDNumber}
             onTextChange={this.onTextChange('IDNumber')}
           />
         </div>
         <div className="mt-1">
           <TextInput 
-            label="Nationality"
+            label="สัญชาติ"
             iconName="map marker alternate"
-            placeholder="Nationality..."
+            placeholder="ัญชาติ..."
             value={nationality}
             onTextChange={this.onTextChange('nationality')}
           />
         </div>
         <div className="mt-1">
-          <label>Project</label><br />
-          <Input list='projects' placeholder='Project...' onChange={this.onProjectChange} />
+          <b><label>ชื่อโครงการ</label></b><br />
+          <Input list='projects' placeholder='กรอกชื่อโครงการ...' onChange={this.onProjectChange} />
           <Link to="/add/project"><Icon name="plus circle" size="big" color="red" /></Link>
           <datalist id='projects'>
             {
@@ -155,8 +155,8 @@ class Children extends Component {
           </datalist>
         </div>
         <div className="mt-1">
-          <label>Camp</label><br />
-          <Input list='camps' placeholder='Camp...' onChange={this.onCampChange} />
+          <label>ชื่อแคมป์</label><br />
+          <Input list='camps' placeholder='กรอกชื่อแคมป์...' onChange={this.onCampChange} />
           <Link to="/add/camp"><Icon name="plus circle" size="big" color="red" /></Link>
           <datalist id='camps'>
             {
@@ -177,50 +177,50 @@ class Children extends Component {
         </div> */}
         <div className="mt-1">
           <RadioButton 
-            label="Has followers"
-            choice={["Yes", "No"]}
+            label="มีผู้ติดตามหรือไม่?"
+            choice={["มี", "ไม่มี"]}
             value={hasFollower}
             onChange={this.handleChange('hasFollower')}
           />
         </div>
         <div className="mt-1">
           <RadioButton 
-            label="Husband"
-            choice={["Yes", "No"]}
+            label="มีสามีเป็นผู้ติดตามหรือไม่?"
+            choice={["มี", "ไม่มี"]}
             value={husband}
             onChange={this.handleChange('husband')}
           />
         </div>
         <div className="mt-1">
           <RadioButton 
-            label="Wife"
-            choice={["Yes", "No"]}
+            label="มีภรรยาเป็นผู้ติดตามหรือไม่?"
+            choice={["มี", "ไม่มี"]}
             value={wife}
             onChange={this.handleChange('wife')}
           />
         </div>
         <div className="mt-1">
           <RadioButton 
-            label="Children"
-            choice={["Yes", "No"]}
+            label="มีเด็กเป็นผู้ติดตามหรือไม่?"
+            choice={["มี", "ไม่มี"]}
             value={children}
             onChange={this.handleChange('children')}
           />
         </div>
         <div className="mt-1">
           <TextInput 
-            label="How many children ?"
+            label="จำนวนเด็กที่ติดตาม?"
             iconName="child"
-            placeholder="number of children..."
+            placeholder="กรอกตัวเลข..."
             value={childrenNumber}
             onTextChange={this.onTextChange('childrenNumber')}
           />
         </div>
         <div className="mt-1">
           <TextInput 
-            label="Other followers"
+            label="ผู้ติดตามอื่นๆ"
             iconName="users"
-            placeholder="relation..."
+            placeholder="ความสัมพันธ์..."
             value={othersFollower}
             onTextChange={this.onTextChange('othersFollower')}
           />

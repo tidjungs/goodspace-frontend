@@ -9,9 +9,9 @@ const ConfirmButton = ({
   return (
     <div>
       <Button.Group>
-        <Button positive onClick={onConfirmClick}>Save</Button>
+        <Button positive onClick={onConfirmClick}>บันทึก</Button>
         <Button.Or />
-        <Button onClick={onCancelClick}>Cancel</Button>
+        <Button onClick={onCancelClick}>ยกเลิก</Button>
       </Button.Group>
     </div>
   )

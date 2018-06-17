@@ -74,7 +74,7 @@ class AddCamp extends Component {
           label="Add New Camp"
         />
         <div className="mt-1">
-          <label>เลือกโครงการ</label><br />
+          <b><label>เลือกโครงการ</label></b><br />
           <Input list='projects' placeholder='เลือกโครงการ' onChange={this.onProjectChange} />
           <Link to="/add/project"><Icon name="plus circle" size="big" color="red" /></Link>
           <datalist id='projects'>
@@ -89,19 +89,19 @@ class AddCamp extends Component {
           <TextInput 
             label="ที่อยู่"
             iconName="home"
-            placeholder="Address..."
+            placeholder="กรอกที่อยู่..."
             value={address}
             onTextChange={this.onTextChange('address')}
           />
         </div>
         <div className="mt-1">
-          <label>จังหวัด</label><br />
+          <b><label>จังหวัด</label></b><br />
           <SelectProvince onChange={this.onProvinceChange} />
         </div>
         <div className="mt-1">
           <RadioButton 
-            label="Has Good Space?"
-            choice={["Yes", "No"]}
+            label="ที่แคมป์นี้มี Good space หรือไม่?"
+            choice={["มี", "ไม่มี"]}
             value={isGoodSpace}
             onChange={this.handleChange}
           />
