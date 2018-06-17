@@ -16,7 +16,7 @@ export const postProject = async ({ id, nameTH, nameENG, startDate, endDate, man
   manager_contact: managerContact,
 });
 
-export const getCamp = async () => await axios.get(`${API_HOST}/camp`);
+export const getCamp = async () => await axios.get(`${API_HOST}/camps`);
 
 export const postCamp = async ({ location, province, has_goodspace, project_id }) => await axios.post(`${API_HOST}/camps`, {
   location,
@@ -24,4 +24,16 @@ export const postCamp = async ({ location, province, has_goodspace, project_id }
   has_goodspace,
   project_id,
 });
+
+// export const getSuplier = async () => await axios.get(`${API_HOST}/camp`);
+
+// export const postCamp = async ({ location, province, has_goodspace, project_id }) => await axios.post(`${API_HOST}/camps`, {
+//   location,
+//   province,
+//   has_goodspace,
+//   project_id,
+// });
+
+export const getParent = async () => await axios.get(`${API_HOST}/workers`);
+export const postParent = async (payload) => await axios.post(`${API_HOST}/workers`, payload);
 

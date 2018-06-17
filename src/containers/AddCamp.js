@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Input } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+import { Input, Icon } from 'semantic-ui-react';
 import TextInput from '../components/TextInput';
 import ConfirmButton from '../components/ConfirmButton';
 import RadioButton from '../components/RadioButton';
@@ -20,7 +21,7 @@ class AddCamp extends Component {
   async componentDidMount() {
     const res = await getProject();
     this.setState({
-      projectData: res.data
+      projectData: res.data.data
     });
   }
 
@@ -75,6 +76,7 @@ class AddCamp extends Component {
         <div className="mt-1">
           <label>เลือกโครงการ</label><br />
           <Input list='projects' placeholder='เลือกโครงการ' onChange={this.onProjectChange} />
+          <Link to="/add/project"><Icon name="plus circle" size="big" color="red" /></Link>
           <datalist id='projects'>
             {
               projectData.map(p =>
@@ -85,7 +87,7 @@ class AddCamp extends Component {
         </div>
         <div className="mt-1">
           <TextInput 
-            label="Home"
+            label="ที่อยู่"
             iconName="home"
             placeholder="Address..."
             value={address}

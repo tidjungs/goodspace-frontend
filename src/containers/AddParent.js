@@ -1,26 +1,52 @@
 import React, { Component } from 'react';
+import { Input, Icon } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import TextInput from '../components/TextInput';
 import ConfirmButton from '../components/ConfirmButton';
 import RadioButton from '../components/RadioButton';
 import PageTitle from '../components/PageTitle';
-import NavBar from '../components/NavBar';
+// import NavBar from '../components/NavBar';
+import { getCamp, getProject, postParent } from '../utils/api';
 
 class Children extends Component {
   state = {
     name: '',
-    gender: '',
+    gender: 'Male',
     phone: '',
     IDNumber: '',
     nationality: '',
     projectName: '',
     suplierName: '',
-    camp: '',
-    hasFollower: '',
-    husband: '',
-    wife: '',
-    children: '',
+    hasFollower: 'Yes',
+    husband: 'Yes',
+    wife: 'Yes',
+    children: 'Yes',
     childrenNumber: '',
-    othersFollower: ''
+    othersFollower: '',
+    projectData: [],
+    campData: [],
+    project: '',
+    camp: '',
+  }
+
+  async componentDidMount() {
+    const responseCamp = await getCamp();
+    const responseProject = await getProject();
+    this.setState({
+      campData: responseCamp.data.data,
+      projectData: responseProject.data.data
+    });
+  }
+
+  onProjectChange = (e, { value }) => {
+    this.setState({
+      project: value.split('-')[1],
+    });
+  }
+  onCampChange = (e, { value }) => {
+    this.setState({
+      camp: value,
+    });
   }
 
   onTextChange = (key) => e => {
@@ -34,6 +60,21 @@ class Children extends Component {
       [key]: value 
     })
   }
+
+  onConfirmClick = async () => {
+    const res = await postParent({
+      id: parseInt(this.state.IDNumber, 10),
+      name: this.state.name,
+      tel: this.state.phone,
+      nationality: this.state.nationality,
+      camp_id: parseInt(this.state.camp, 10),
+    });
+    this.props.history.goBack()
+  }
+
+  onCancelClick = () => {
+    this.props.history.goBack()
+  }
   
   render() {
     const {
@@ -42,19 +83,18 @@ class Children extends Component {
       phone,
       IDNumber,
       nationality,
-      projectName,
-      suplierName,
-      camp,
       hasFollower,
       husband,
       wife,
       children,
       childrenNumber,
       othersFollower,
+      projectData,
+      campData,
     } = this.state;
     return (
       <div className="container">
-        <NavBar path="/parent" />
+        {/* <NavBar path="/parent" /> */}
         <PageTitle 
           label="Add New Parent"
         />
@@ -103,15 +143,30 @@ class Children extends Component {
           />
         </div>
         <div className="mt-1">
-          <TextInput 
-            label="Project name"
-            iconName="building"
-            placeholder="Project name..."
-            value={projectName}
-            onTextChange={this.onTextChange('projectName')}
-          />
+          <label>Project</label><br />
+          <Input list='projects' placeholder='Project...' onChange={this.onProjectChange} />
+          <Link to="/add/project"><Icon name="plus circle" size="big" color="red" /></Link>
+          <datalist id='projects'>
+            {
+              projectData.map(p =>
+                <option value={p.name_th + '-' + p.id} key={p.id} />
+              )
+            }
+          </datalist>
         </div>
         <div className="mt-1">
+          <label>Camp</label><br />
+          <Input list='camps' placeholder='Camp...' onChange={this.onCampChange} />
+          <Link to="/add/camp"><Icon name="plus circle" size="big" color="red" /></Link>
+          <datalist id='camps'>
+            {
+              campData.map(p =>
+                <option value={p.id} key={p.id} />
+              )
+            }
+          </datalist>
+        </div>
+        {/* <div className="mt-1">
           <TextInput 
             label="Suplier name"
             iconName="handshake"
@@ -119,16 +174,7 @@ class Children extends Component {
             value={suplierName}
             onTextChange={this.onTextChange('suplierName')}
           />
-        </div>
-        <div className="mt-1">
-          <TextInput 
-            label="Camp"
-            iconName="home"
-            placeholder="Camp..."
-            value={camp}
-            onTextChange={this.onTextChange('camp')}
-          />
-        </div>
+        </div> */}
         <div className="mt-1">
           <RadioButton 
             label="Has followers"
@@ -180,7 +226,10 @@ class Children extends Component {
           />
         </div>
         <div className="mt-1">
-          <ConfirmButton />
+          <ConfirmButton 
+            onConfirmClick={this.onConfirmClick}
+            onCancelClick={this.onCancelClick}
+          />
         </div>
       </div>
     );
