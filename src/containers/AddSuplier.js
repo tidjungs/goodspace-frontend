@@ -58,7 +58,7 @@ class Children extends Component {
           label="Add New Suplier"
         />
         <div className="mt-1">
-          <label>เลือกโครงการ</label><br />
+          <b><label>เลือกโครงการ</label></b><br />
           <Input list='projects' placeholder='เลือกโครงการ' onChange={this.onProjectChange} />
           <Link to="/add/project"><Icon name="plus circle" size="big" color="red" /></Link>
           <datalist id='projects'>
@@ -71,25 +71,25 @@ class Children extends Component {
         </div>
         <div className="mt-1">
           <TextInput 
-            label="Name"
+            label="ชื่อผู้รับเหมา"
             iconName="user"
-            placeholder="name.."
+            placeholder="กรอกชื่อ.."
             value={pmName}
             onTextChange={this.onTextChange('pmName')}
           />
         </div>
         <div className="mt-1">
           <TextInput 
-            label="Phone"
+            label="เบอร์ติดต่อ"
             iconName="phone"
-            placeholder="phone.."
+            placeholder="เบอร์ติดต่อ.."
             value={phoneNumber}
             onTextChange={this.onTextChange('phoneNumber')}
           />
         </div>
         <div className="mt-1">
           <TextInput 
-            label="Email"
+            label="Email ผู้รับเหมา"
             iconName="at"
             placeholder="email..."
             value={email}

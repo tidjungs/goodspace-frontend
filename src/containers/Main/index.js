@@ -12,7 +12,7 @@ const Main = () => (
     <div className="main-container">
       <label className="title">Good Space</label><br />
       <div className="mt-1" />
-      <label className="sub-title">Good for Life...</label>
+      <label className="sub-title">For Better Life...</label>
       <div className="mt-2" />
       <div className="row-1">
         <MainButton 

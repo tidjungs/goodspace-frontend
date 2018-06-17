@@ -48,7 +48,7 @@ class ChildrenDetail extends Component {
             <Grid.Row columns={1}>
               <Grid.Column>
                 <div className="flex-center">
-                  <h1>Information</h1>
+                  <h1>ข้อมูลทั่วไปของเด็ก</h1>
                 </div>
               </Grid.Column>
             </Grid.Row>
@@ -57,17 +57,17 @@ class ChildrenDetail extends Component {
             <Grid.Row columns={3}>
               <Grid.Column>
                 <div className="flex-center">
-                  <h5>Name: Monpriya Tammavong</h5>
+                  <h5>ชื่อ: Monpriya Tammavong</h5>
                 </div>
               </Grid.Column>
               <Grid.Column>
                 <div className="flex-center">
-                  <h5>Parent Name: Monpriya Tammavong</h5>
+                  <h5>ชื่อผู้ปกครอง: Monpriya Tammavong</h5>
                 </div>
               </Grid.Column>
               <Grid.Column>
                 <div className="flex-center">
-                  <h5>Birthdate: 8 April 1997</h5>
+                  <h5>วันเดือนปีเกิด: 8 April 1997</h5>
                 </div>
               </Grid.Column>
             </Grid.Row>

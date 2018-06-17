@@ -103,24 +103,24 @@ class Children extends Component {
         />
         <div className="mt-1">
           <TextInput 
-            label="Name"
+            label="ชื่อ"
             iconName="user"
-            placeholder="Name..."
+            placeholder="ชื่อ..."
             value={name}
             onTextChange={this.onTextChange('name')}
           />
         </div>
         <div className="mt-1">
           <RadioButton 
-            label="Gender"
-            choice={["Male", "Female"]}
+            label="เพศ"
+            choice={["ชาย", "หญิง"]}
             value={gender}
             onChange={this.handleChange('gender')}
           />
         </div>
         <div className="mt-1">
-          <label>Parent</label><br />
-          <Input list='parents' placeholder='Parent...' onChange={this.onParentChange} />
+          <b><label>ผู้ปกครอง</label></b><br />
+          <Input list='parents' placeholder='ชื่อผู้ปกครอง...' onChange={this.onParentChange} />
           <Link to="/add/parent"><Icon name="plus circle" size="big" color="red" /></Link>
           <datalist id='parents'>
             {
@@ -132,87 +132,87 @@ class Children extends Component {
         </div>
         <div className="mt-1">
           <TextInput 
-            label="ID Number"
+            label="รหัสประจำตัวเด็ก"
             iconName="address card"
-            placeholder="ID Number..."
+            placeholder="รหัสประจำตัว..."
             value={IDNumber}
             onTextChange={this.onTextChange('IDNumber')}
           />
         </div>
         <div className="mt-1">
           <div className="mr-1">    
-            <b><label>Birthdate</label></b>
+            <b><label>วันเดือนปีเกิด</label></b>
           </div>
           <DateInput
             name="birthdate"
-            placeholder="Birthdate..."
+            placeholder="เลือกวันเดือนปี..."
             value={birthdate}
             iconPosition="left"
             onChange={this.handleDateChange} />
         </div>
         <div className="mt-1">
           <TextInput 
-            label="Age"
+            label="อายุ"
             iconName="child"
-            placeholder="Age..."
+            placeholder="อายุ..."
             value={age}
             onTextChange={this.onTextChange('age')}
           />
         </div>
         <div className="mt-1">
           <TextInput 
-            label="Nationality"
+            label="สัญชาติ"
             iconName="map marker alternate"
-            placeholder="Nationality..."
+            placeholder="สัญชาติ..."
             value={nationality}
             onTextChange={this.onTextChange('nationality')}
           />
         </div>
         <div className="mt-1">
           <RadioButton 
-            label="Stay"
-            choice={["Temporary", "Permanent"]}
+            label="ลักษณะการติดตาม?"
+            choice={["ประจำ", "ชั่วคราว"]}
             value={stayStatus}
             onChange={this.handleChange('stayStatus')}
           />
         </div>
         <div className="mt-1">
           <RadioButton 
-            label="Has school?"
-            choice={["Yes", "No"]}
+            label="ได้รับการศึกษาหรือไม่?"
+            choice={["ได้", "ไม่"]}
             value={hasSchool}
             onChange={this.handleChange('hasSchool')}
           />
         </div>
         <div className="mt-1">
           <TextInput 
-            label="Grade"
+            label="ระดับการศึกษา"
             iconName="book"
-            placeholder="Grade..."
+            placeholder="ระดับการศึกษา..."
             value={grade}
             onTextChange={this.onTextChange('grade')}
           />
         </div>
         <div className="mt-1">
           <TextInput 
-            label="School name"
+            label="ชื่อโรงเรียน"
             iconName="student"
-            placeholder="School name..."
+            placeholder="กรอกชื่อโรงเรียน..."
             value={schoolName}
             onTextChange={this.onTextChange('schoolName')}
           />
         </div>
         <div className="mt-1">
           <RadioButton 
-            label="Vaccine"
-            choice={["Yes", "No"]}
+            label="ได้รับวัคซีนหรือไม่?"
+            choice={["ได้รับ", "ไม่ได้รับ"]}
             value={vaccine}
             onChange={this.handleChange('vaccine')}
           />
         </div>
         <div className="mt-1">
           <TextInput 
-            label="Past vaccine"
+            label="วัคซีนที่เคยได้รับ"
             iconName="hospital"
             placeholder="Past vaccine..."
             value={pastVaccine}
@@ -221,22 +221,22 @@ class Children extends Component {
         </div>
         <div className="mt-1">
           <div className="mr-1">    
-            <b><label>Assign vaccine date</label></b>
+            <b><label>วันที่นัดรับ</label></b>
           </div>
           <DateInput
             name="assignDate"
-            placeholder="assign date..."
+            placeholder="เลือกวันที่..."
             value={assignDate}
             iconPosition="left"
             onChange={this.handleDateChange} />
         </div>
         <div className="mt-1">
           <div className="mr-1">    
-            <b><label>Take vaccine date</label></b>
+            <b><label>วันที่ได้รับ</label></b>
           </div>
           <DateInput
             name="takeDate"
-            placeholder="take date..."
+            placeholder="เลือกวันที่..."
             value={takeDate}
             iconPosition="left"
             onChange={this.handleDateChange} />
