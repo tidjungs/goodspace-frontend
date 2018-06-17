@@ -13,7 +13,7 @@ class ChildrenDetail extends Component {
       { id: 1235, name: 'test test', parent: 'def, abc', camp: 'B', goodSpace: false },
     ],
     activePage: 1,
-    allPage: 10,
+    allPage: 1,
   }
 
   onSearchClick = () => {
@@ -24,7 +24,7 @@ class ChildrenDetail extends Component {
     const { childrenData, activePage, allPage } = this.state;
     return (
       <div className="container">
-        <NavBar path="/parent" />
+        <NavBar path="/camp" />
         <div className="grid-center">
           <Image src={tentImg} size="tiny" style={{margin:"auto"}}/>
           {/* <label>{`child name: ${this.props.match.params.childId}`}</label> */}
