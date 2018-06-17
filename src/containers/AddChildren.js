@@ -3,7 +3,8 @@ import TextInput from '../components/TextInput';
 import ConfirmButton from '../components/ConfirmButton';
 import RadioButton from '../components/RadioButton';
 import PageTitle from '../components/PageTitle';
-import { DateInput } from 'semantic-ui-calendar-react'
+import NavBar from '../components/NavBar';
+import { DateInput } from 'semantic-ui-calendar-react';
 
 class Children extends Component {
   state = {
@@ -62,6 +63,7 @@ class Children extends Component {
     } = this.state;
     return (
       <div className="container">
+        <NavBar path="/children" />
         <PageTitle 
           label="Add New Children"
         />

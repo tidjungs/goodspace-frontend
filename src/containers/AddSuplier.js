@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TextInput from '../components/TextInput';
 import ConfirmButton from '../components/ConfirmButton';
 import PageTitle from '../components/PageTitle';
+import NavBar from '../components/NavBar';
 
 class Children extends Component {
   state = {
@@ -26,6 +27,7 @@ class Children extends Component {
     } = this.state;
     return (
       <div className="container">
+        <NavBar path="/campaign" />
         <PageTitle 
           label="Add New Suplier"
         />

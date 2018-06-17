@@ -27,7 +27,7 @@ class Parent extends Component {
         <SearchBox 
           label="Who are you looking for?"
           type="parent"
-          path="/"
+          path="/add/parent"
         />
         <SearchTable
           data={parentData}

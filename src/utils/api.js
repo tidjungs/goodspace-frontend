@@ -13,5 +13,5 @@ export const postProject = async ({ id, nameTH, nameENG, province, startDate, en
   province: province,
   start_date: startDate,
   finish_date: endDate,
-  manager_contact: managerContact,
+  manager_contact: managerContact, 
 })

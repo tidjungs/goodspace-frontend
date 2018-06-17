@@ -6,6 +6,7 @@ import PageTitle from '../components/PageTitle';
 import SelectProvince from '../components/SelectProvince';
 import { DatesRangeInput } from 'semantic-ui-calendar-react';
 import { postProject } from '../utils/api';
+import NavBar from '../components/NavBar';
 
 class AddProject extends Component {
   state = {
@@ -67,6 +68,7 @@ class AddProject extends Component {
     // console.log(this.state.constructionDuration)
     return (
       <div className="container">
+        <NavBar path="/campaign" />
         <PageTitle 
           label="Add New Project"
         />
