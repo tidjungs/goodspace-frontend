@@ -20,7 +20,8 @@ class Children extends Component {
   async componentDidMount() {
     const res = await getChildren();
     this.setState({
-      childrenData: childrenAdapter(res.data.data)
+      childrenData: childrenAdapter(res.data.data),
+      allPage: Math.ceil(res.data.count / 6)
     })
   }
 
