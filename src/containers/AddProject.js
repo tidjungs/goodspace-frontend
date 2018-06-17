@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import TextInput from '../components/TextInput';
+// import TextInput from '../components/TextInput';
 import ConfirmButton from '../components/ConfirmButton';
 import PageTitle from '../components/PageTitle';
 import { DatesRangeInput } from 'semantic-ui-calendar-react';
 import { postProject } from '../utils/api';
-import { Form, Icon } from 'semantic-ui-react';
+import { Form } from 'semantic-ui-react';
 // import NavBar from '../components/NavBar';
 
 class AddProject extends Component {

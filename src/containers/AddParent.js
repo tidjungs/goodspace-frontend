@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Icon } from 'semantic-ui-react';
-import { DateInput } from 'semantic-ui-calendar-react';
+// import { DateInput } from 'semantic-ui-calendar-react';
 import { Link } from 'react-router-dom';
-import TextInput from '../components/TextInput';
+// import TextInput from '../components/TextInput';
 import ConfirmButton from '../components/ConfirmButton';
 import RadioButton from '../components/RadioButton';
 import PageTitle from '../components/PageTitle';
@@ -28,7 +28,7 @@ class Children extends Component {
     campData: [],
     project: '',
     camp: '',
-    suplierName: ''
+    // suplierName: ''
   }
 
   async componentDidMount() {

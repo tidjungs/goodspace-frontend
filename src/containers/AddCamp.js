@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Icon, Form, Input } from 'semantic-ui-react';
+import { Icon, Form } from 'semantic-ui-react';
 import ConfirmButton from '../components/ConfirmButton';
 import RadioButton from '../components/RadioButton';
 import PageTitle from '../components/PageTitle';
 import SelectProvince from '../components/SelectProvince';
-import TextInput from '../components/TextInput';
+// import TextInput from '../components/TextInput';
 import { getProject, postCamp } from '../utils/api';
 // import NavBar from '../components/NavBar';
 
@@ -65,7 +65,6 @@ class AddCamp extends Component {
 
   render() {
     const {
-      name,
       projectData,
       address,
       isGoodSpace
@@ -76,7 +75,7 @@ class AddCamp extends Component {
         <PageTitle 
           label="Add New Camp"
         />
-        <div className="mt-1">
+        {/* <div className="mt-1">
           <TextInput 
             label="ชื่อ"
             placeholder="กรอกชื่อแคมป์..."
