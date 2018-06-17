@@ -5,6 +5,7 @@ import ConfirmButton from '../components/ConfirmButton';
 import PageTitle from '../components/PageTitle';
 import { DatesRangeInput } from 'semantic-ui-calendar-react';
 import { postProject } from '../utils/api';
+import { Form, Icon } from 'semantic-ui-react';
 // import NavBar from '../components/NavBar';
 
 class AddProject extends Component {
@@ -60,7 +61,7 @@ class AddProject extends Component {
         <PageTitle 
           label="Add New Project"
         />
-        <div className="mt-1">
+        {/* <div className="mt-1">
           <TextInput 
             label="รหัสโครงการ"
             iconName="id card"
@@ -112,6 +113,59 @@ class AddProject extends Component {
             onConfirmClick={this.onConfirmClick}
             onCancelClick={this.onCancelClick}
           />
+        </div> */}
+        <div className="mt-1">
+          <Form>
+            <Form.Group>
+              <Form.Input label='รหัสโครงการ' 
+                          icon="id card"
+                          placeholder="รหัสโครงการ..."
+                          value={projectID}
+                          iconPosition='left'
+                          onChange={this.onTextChange('projectID')} 
+                          width={7} />
+              <Form.Input label='ชื่อโครงการ' 
+                          icon="building"
+                          placeholder="ชื่อโครงการ..."
+                          value={projectName}
+                          iconPosition='left'
+                          onChange={this.onTextChange('projectName')} 
+                          width={7} />
+            </Form.Group>
+            <Form.Group>
+              <Form.Input label='ชื่อผู้ควบคุมโครงการ' 
+                          icon="user"
+                          placeholder="ชื่อผู้ควบคุม..."
+                          value={pmName}
+                          iconPosition='left'
+                          onChange={this.onTextChange('pmName')} 
+                          width={7} />
+              <Form.Input label='Email ของผู้ควบคุมโครงการ' 
+                          icon="at"
+                          placeholder="email..."
+                          value={email}
+                          iconPosition='left'
+                          onChange={this.onTextChange('email')} 
+                          width={7} />
+            </Form.Group>
+            <Form.Group>
+              <Form.Input>
+                <div>
+                  <b><label>วันเดือนปีเกิด</label></b>
+                  <DatesRangeInput name="ระยะเวลาที่ก่อสร้าง"
+                           placeholder="เริ่ม - จบ"
+                           value={constructionDuration}
+                           iconPosition="left"
+                           onChange={this.handleDateChange} />
+                </div>
+              </Form.Input>
+              <Form.Input>
+                <div className="mt-2" style={{margin:"18px 0px 0px 0px"}}>
+                  <ConfirmButton onConfirmClick={this.onConfirmClick} onCancelClick={this.onCancelClick} />
+                </div>
+              </Form.Input>
+            </Form.Group>
+          </Form>
         </div>
       </div>
     );

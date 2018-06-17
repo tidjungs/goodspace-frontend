@@ -27,6 +27,7 @@ export const getCamp = async () => await axios.get(`${API_HOST}/camps`);
 export const postCamp = async (payload) => await axios.post(`${API_HOST}/camps`, payload);
 
 export const getParent = async () => await axios.get(`${API_HOST}/workers`);
+export const getParentById = async (id) => await axios.get(`${API_HOST}/workers/${id}`);
 export const postParent = async (payload) => await axios.post(`${API_HOST}/workers`, payload);
 
 export const getChildren = async () => await axios.get(`${API_HOST}/children`);

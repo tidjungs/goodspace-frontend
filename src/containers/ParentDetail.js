@@ -15,7 +15,7 @@ class ChildrenDetail extends Component {
     activePage: 1,
     allPage: 10,
   }
-
+  
   onSearchClick = () => {
     console.log('search...');
   }

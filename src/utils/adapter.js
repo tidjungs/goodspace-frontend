@@ -9,9 +9,9 @@ export const childrenAdapter = (children) => children.map((child) => {
 export const parentAdapter = (parents) => parents.map((parent) => {
   const parentObj = { id: parent.id };
   parentObj.name = parent.name !== '' ? parent.name : ' - '
-  parentObj.followerCount = parent.followerCount ? parent.followerCount : 0;
-  parentObj.childrenCount = parent.childrenCount ? parent.childrenCount : 0;
-  parentObj.nature = parent.nationality ? parent.nationality : 'None Nature';
+  parentObj.followerCount = parent.follower ? parent.follower.length : 0;
+  parentObj.childrenCount = parent.Children ? parent.Children.length : 0;
+  parentObj.nature = parent.nationality ? parent.nationality : ' - ';
   return parentObj;
 });
 

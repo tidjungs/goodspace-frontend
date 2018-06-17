@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input, Icon } from 'semantic-ui-react';
+import { Form, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import TextInput from '../components/TextInput';
 import ConfirmButton from '../components/ConfirmButton';
@@ -57,7 +57,7 @@ class Children extends Component {
         <PageTitle 
           label="Add New Suplier"
         />
-        <div className="mt-1">
+        {/* <div className="mt-1">
           <b><label>เลือกโครงการ</label></b><br />
           <Input list='projects' placeholder='เลือกโครงการ' onChange={this.onProjectChange} />
           <Link to="/add/project"><Icon name="plus circle" size="big" color="red" /></Link>
@@ -101,6 +101,49 @@ class Children extends Component {
             onConfrimClick={this.onConfirmClick}
             onCancelClick={this.onCancelClick}
           />
+        </div> */}
+        <div className="mt-1">
+          <Form>
+            <Form.Group>
+              <Form.Input list='projects' placeholder='เลือกโครงการ' onChange={this.onProjectChange} label='ชื่อโครงการ' width={6} />
+                <Link to="/add/project"><Icon name="plus circle" size="big" color="red" style={{margin:"25px 5px 5px 5px"}}/></Link>
+                  <datalist id='projects'>
+                  {
+                    projectData.map(p =>
+                      <option value={p.name_th + '-' + p.id} key={p.id} />
+                    )
+                  }
+                  </datalist>
+              <Form.Input label='ชื่อผู้รับเหมา' 
+                          icon="user"
+                          placeholder="กรอกชื่อ..."
+                          value={pmName}
+                          iconPosition='left'
+                          onChange={this.onTextChange('pmName')} 
+                          width={7} />
+            </Form.Group>
+            <Form.Group>
+              <Form.Input label='เบอร์ติดต่อ' 
+                          icon="phone"
+                          placeholder="เบอร์ติดต่อ..."
+                          value={phoneNumber}
+                          iconPosition='left'
+                          onChange={this.onTextChange('phoneNumber')} 
+                          width={6} />
+              <Form.Input label='Email ผู้รับเหมา' 
+                          icon="at"
+                          placeholder="email..."
+                          value={email}
+                          iconPosition='left'
+                          onChange={this.onTextChange('email')} 
+                          width={6} />
+              <Form.Input>
+                <div className="mt-2">
+                  <ConfirmButton onConfirmClick={this.onConfirmClick} onCancelClick={this.onCancelClick} />
+                </div>
+              </Form.Input>
+            </Form.Group>
+          </Form>
         </div>
       </div>
     );

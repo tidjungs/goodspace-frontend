@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Input, Icon } from 'semantic-ui-react';
+import { Form, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import TextInput from '../components/TextInput';
 import ConfirmButton from '../components/ConfirmButton';
 import RadioButton from '../components/RadioButton';
 import PageTitle from '../components/PageTitle';
@@ -92,8 +91,8 @@ class Children extends Component {
       schoolName,
       vaccine,
       pastVaccine,
-      assignDate,
-      takeDate,
+      // assignDate,
+      // takeDate,
       parentData,
     } = this.state;
     return (
@@ -101,7 +100,7 @@ class Children extends Component {
         <PageTitle 
           label="Add New Children"
         />
-        <div className="mt-1">
+        {/* <div className="mt-1">
           <TextInput 
             label="ชื่อ"
             iconName="user"
@@ -246,6 +245,125 @@ class Children extends Component {
             onConfirmClick={this.onConfirmClick}
             onCancelClick={this.onCancelClick}
           />
+        </div> */}
+        <div className="mt-1">
+          <Form>
+            <Form.Group>
+              <Form.Input label='ชื่อ' 
+                          icon="user"
+                          placeholder="ชื่อ..."
+                          value={name}
+                          iconPosition='left'
+                          onChange={this.onTextChange('name')} 
+                          width={7} />
+              <Form.Input width={3}>
+                <div className="mt-1" style={{margin:"25px 5px 5px 5px"}}>
+                  <RadioButton label="เพศ"
+                               choice={["ชาย", "หญิง"]}
+                               value={gender}
+                               onChange={this.handleChange('gender')} />
+                </div>
+              </Form.Input>
+              <Form.Input>
+                <div>
+                  <b><label>วันเดือนปีเกิด</label></b>
+                  <DateInput name="birthdate"
+                           placeholder="เลือกวันเดือนปี..."
+                           value={birthdate}
+                           iconPosition="left"
+                           onChange={this.handleDateChange} />
+                </div>
+              </Form.Input>
+            </Form.Group>
+            <Form.Group>
+              <Form.Input list='parents' placeholder='ชื่อผู้ปกครอง' onChange={this.onProjectChange} label='ชื่อผู้ปกครอง' width={6} />
+                <Link to="/add/parent"><Icon name="plus circle" size="big" color="red" style={{margin:"25px 5px 5px 5px"}}/></Link>
+                  <datalist id='projects'>
+                  {
+                    parentData.map(p =>
+                      <option value={p.name_th + '-' + p.id} key={p.id} />
+                    )
+                  }
+                  </datalist>
+              <Form.Input label='รหัสประจำตัวเด็ก' 
+                          icon="address card"
+                          placeholder="รหัสประจำตัว..."
+                          value={IDNumber}
+                          iconPosition='left'
+                          onChange={this.onTextChange('IDNumber')} 
+                          width={6} />
+              <Form.Input label='อายุ' 
+                          icon="child"
+                          placeholder="อายุ..."
+                          value={age}
+                          iconPosition='left'
+                          onChange={this.onTextChange('age')} 
+                          width={2} />
+            </Form.Group>
+            <Form.Group>
+              <Form.Input label='สัญชาติ' 
+                          icon="map marker alternate"
+                          placeholder="สัญชาติ..."
+                          value={nationality}
+                          iconPosition='left'
+                          onChange={this.onTextChange('nationality')} 
+                          width={4} />
+              <Form.Input width={5}>
+                <div className="mt-1" style={{margin:"25px 5px 5px 5px"}}>
+                  <RadioButton label="ลักษณะการติดตาม"
+                               choice={["ประจำ", "ชั่วคราว"]}
+                               value={stayStatus}
+                               onChange={this.handleChange('stayStatus')} />
+                </div>
+              </Form.Input>
+              <Form.Input width={5}>
+                <div className="mt-1" style={{margin:"25px 5px 5px 5px"}}>
+                  <RadioButton label="ได้รับการศึกษาหรือไม่"
+                               choice={["ได้", "ไม่"]}
+                               value={hasSchool}
+                               onChange={this.handleChange('stayStatus')} />
+                </div>
+              </Form.Input>
+            </Form.Group>
+            <Form.Group>
+              <Form.Input label='ระดับการศึกษา' 
+                          icon="book"
+                          placeholder="ระดับการศึกษา..."
+                          value={grade}
+                          iconPosition='left'
+                          onChange={this.onTextChange('grade')} 
+                          width={6} />
+              <Form.Input label='ชื่อโรงเรียน' 
+                          icon="student"
+                          placeholder="กรอกชื่อโรงเรียน..."
+                          value={schoolName}
+                          iconPosition='left'
+                          onChange={this.onTextChange('schoolName')} 
+                          width={8} />
+            </Form.Group>
+            <Form.Group>
+              <Form.Input width={5}>
+                <div className="mt-1" style={{margin:"25px 5px 5px 5px"}}>
+                  <RadioButton label="ได้รับวัคซีนหรือไม่?"
+                               choice={["ได้รับ", "ไม่ได้รับ"]}
+                               value={vaccine}
+                               onChange={this.handleChange('vaccine')} />
+                </div>
+              </Form.Input>
+              <Form.Input label='วัคซีนที่เคยได้รับ' 
+                          icon="hospital"
+                          placeholder="ชื่อวัคซีน..."
+                          value={pastVaccine}
+                          iconPosition='left'
+                          onChange={this.onTextChange('pastVaccine')} 
+                          width={6} />
+              <Form.Input>
+                <div className="mt-2">
+                  <ConfirmButton onConfirmClick={this.onConfirmClick} onCancelClick={this.onCancelClick} />
+                </div>
+              </Form.Input>
+            </Form.Group>
+          </Form>
         </div>
       </div>
     );

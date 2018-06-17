@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Input, Icon } from 'semantic-ui-react';
-import TextInput from '../components/TextInput';
+import { Icon, Form, Input } from 'semantic-ui-react';
 import ConfirmButton from '../components/ConfirmButton';
 import RadioButton from '../components/RadioButton';
 import PageTitle from '../components/PageTitle';
 import SelectProvince from '../components/SelectProvince';
+import TextInput from '../components/TextInput';
 import { getProject, postCamp } from '../utils/api';
 // import NavBar from '../components/NavBar';
 
@@ -122,6 +122,49 @@ class AddCamp extends Component {
             onConfirmClick={this.onConfirmClick}
             onCancelClick={this.onCancelClick}
           />
+        </div> */}
+        <div className="mt-1">
+          <Form>
+            <Form.Group>
+              <Form.Input list='projects' placeholder='เลือกโครงการ' onChange={this.onProjectChange} label='ชื่อโครงการ' width={6} />
+                <Link to="/add/project"><Icon name="plus circle" size="big" color="red" style={{margin:"25px 5px 5px 5px"}}/></Link>
+                  <datalist id='projects'>
+                  {
+                    projectData.map(p =>
+                      <option value={p.name_th + '-' + p.id} key={p.id} />
+                    )
+                  }
+                  </datalist>
+              <Form.Input label='ที่อยู่' 
+                          icon="home"
+                          placeholder="กรอกที่อยู่..."
+                          value={address}
+                          iconPosition='left'
+                          onChange={this.onTextChange('address')} 
+                          width={10} />
+            </Form.Group>
+            <Form.Group>
+              <Form.Input>
+                <div>
+                  <b><label>จังหวัด</label></b><br />
+                  <SelectProvince onChange={this.onProvinceChange} />
+                </div>
+              </Form.Input>
+              <Form.Input width={8}>
+                <div className="mt-1" style={{margin:"25px 5px 5px 5px"}}>
+                  <RadioButton label="ที่แคมป์นี้มี Good space หรือไม่?"
+                              choice={["มี", "ไม่มี"]}
+                              value={isGoodSpace}
+                              onChange={this.handleChange} />
+                </div>
+              </Form.Input>
+              <Form.Input>
+                <div className="mt-1">
+                  <ConfirmButton onConfirmClick={this.onConfirmClick} onCancelClick={this.onCancelClick} />
+                </div>
+              </Form.Input>
+            </Form.Group>
+          </Form>
         </div>
       </div>
     );

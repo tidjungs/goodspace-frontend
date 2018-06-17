@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Input, Icon } from 'semantic-ui-react';
+import { Form, Icon } from 'semantic-ui-react';
+import { DateInput } from 'semantic-ui-calendar-react';
 import { Link } from 'react-router-dom';
 import TextInput from '../components/TextInput';
 import ConfirmButton from '../components/ConfirmButton';
@@ -27,6 +28,7 @@ class Children extends Component {
     campData: [],
     project: '',
     camp: '',
+    suplierName: ''
   }
 
   async componentDidMount() {
@@ -83,6 +85,7 @@ class Children extends Component {
       phone,
       IDNumber,
       nationality,
+      suplierName,
       hasFollower,
       husband,
       wife,
@@ -98,7 +101,7 @@ class Children extends Component {
         <PageTitle 
           label="Add New Parent"
         />
-        <div className="mt-1">
+        {/* <div className="mt-1">
           <TextInput 
             label="ชื่อ"
             iconName="user"
@@ -174,7 +177,7 @@ class Children extends Component {
             value={suplierName}
             onTextChange={this.onTextChange('suplierName')}
           />
-        </div> */}
+        </div> 
         <div className="mt-1">
           <RadioButton 
             label="มีผู้ติดตามหรือไม่?"
@@ -224,12 +227,132 @@ class Children extends Component {
             value={othersFollower}
             onTextChange={this.onTextChange('othersFollower')}
           />
-        </div>
+        </div> */}
         <div className="mt-1">
-          <ConfirmButton 
-            onConfirmClick={this.onConfirmClick}
-            onCancelClick={this.onCancelClick}
-          />
+          <Form>
+            <Form.Group>
+              <Form.Input label='ชื่อ' 
+                          icon="user"
+                          placeholder="ชื่อ..."
+                          value={name}
+                          iconPosition='left'
+                          onChange={this.onTextChange('name')} 
+                          width={7} />
+              <Form.Input width={3}>
+                <div className="mt-1" style={{margin:"25px 5px 5px 5px"}}>
+                  <RadioButton label="เพศ"
+                               choice={["ชาย", "หญิง"]}
+                               value={gender}
+                               onChange={this.handleChange('gender')} />
+                </div>
+              </Form.Input>
+              <Form.Input label='เบอร์โทร' 
+                          icon="phone"
+                          placeholder="กรอกเบอร์..."
+                          value={phone}
+                          iconPosition='left'
+                          onChange={this.onTextChange('phone')} 
+                          width={7} />
+            </Form.Group>
+            <Form.Group>
+              <Form.Input label='รหัสประจำตัว' 
+                          icon="address card"
+                          placeholder="รหัสประจำตัว..."
+                          value={IDNumber}
+                          iconPosition='left'
+                          onChange={this.onTextChange('IDNumber')} 
+                          width={5} />
+              <Form.Input label='สัญชาติ' 
+                          icon="map marker alternate"
+                          placeholder="สัญชาติ..."
+                          value={nationality}
+                          iconPosition='left'
+                          onChange={this.onTextChange('nationality')} 
+                          width={5} />
+              <Form.Input list='projects' placeholder='เลือกโครงการ' onChange={this.onProjectChange} label='ชื่อโครงการ' width={6} />
+                <Link to="/add/project"><Icon name="plus circle" size="big" color="red" style={{margin:"25px 5px 5px 5px"}}/></Link>
+                  <datalist id='projects'>
+                  {
+                    projectData.map(p =>
+                      <option value={p.name_th + '-' + p.id} key={p.id} />
+                    )
+                  }
+                  </datalist>
+            </Form.Group>
+            <Form.Group>
+              <Form.Input list='camps' placeholder='เลือกแคมป์...' onChange={this.onCampChange} label='ชื่อแคมป์' width={6} />
+                <Link to="/add/camp"><Icon name="plus circle" size="big" color="red" style={{margin:"25px 5px 5px 5px"}}/></Link>
+                  <datalist id='camps'>
+                  {
+                    campData.map(p =>
+                      <option value={p.id} key={p.id} />
+                    )
+                  }
+                  </datalist>
+              <Form.Input label='ชื่อผู้รับเหมา' 
+                          icon="handshake"
+                          placeholder="ชื่อผู้รับเหมา..."
+                          value={suplierName}
+                          iconPosition='left'
+                          onChange={this.onTextChange('suplierName')} 
+                          width={5} />              
+              <Form.Input width={6}>
+                <div className="mt-1" style={{margin:"25px 5px 5px 5px"}}>
+                  <RadioButton label="มีผู้ติดตามหรือไม่?"
+                               choice={["มี", "ไม่มี"]}
+                               value={hasFollower}
+                               onChange={this.handleChange('hasFollower')} />
+                </div>
+              </Form.Input>
+            </Form.Group>
+            <Form.Group>
+              <Form.Input width={5}>
+                <div className="mt-1">
+                  <RadioButton label="มีสามีเป็นผู้ติดตามหรือไม่?"
+                               choice={["มี", "ไม่มี"]}
+                               value={husband}
+                               onChange={this.handleChange('husband')} />
+                </div>
+              </Form.Input>
+              <Form.Input width={5}>
+                <div className="mt-1">
+                  <RadioButton label="มีภรรยาเป็นผู้ติดตามหรือไม่?"
+                               choice={["มี", "ไม่มี"]}
+                               value={wife}
+                               onChange={this.handleChange('wife')} />
+                </div>
+              </Form.Input>
+              <Form.Input width={5}>
+                <div className="mt-1">
+                  <RadioButton label="มีเด็กเป็นผู้ติดตามหรือไม่?"
+                               choice={["มี", "ไม่มี"]}
+                               value={children}
+                               onChange={this.handleChange('children')} />
+                </div>
+              </Form.Input>
+            </Form.Group>
+            <Form.Group>
+              <Form.Input label='จำนวนเด็กที่ติดตาม' 
+                          icon="child"
+                          placeholder="กรอกตัวเลข..."
+                          value={childrenNumber}
+                          iconPosition='left'
+                          onChange={this.onTextChange('childrenNumber')} 
+                          width={5} />
+              <Form.Input label='ผู้ติดตามอื่นๆ' 
+                          icon="users"
+                          placeholder="ความสัมพันธ์..."
+                          value={othersFollower}
+                          iconPosition='left'
+                          onChange={this.onTextChange('othersFollower')} 
+                          width={5} />
+              <Form.Input>
+                <div className="mt-2">
+                  <ConfirmButton onConfirmClick={this.onConfirmClick} onCancelClick={this.onCancelClick} />
+                </div>
+              </Form.Input>
+            </Form.Group>
+          </Form>
         </div>
       </div>
     );
