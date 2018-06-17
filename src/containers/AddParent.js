@@ -3,6 +3,7 @@ import TextInput from '../components/TextInput';
 import ConfirmButton from '../components/ConfirmButton';
 import RadioButton from '../components/RadioButton';
 import PageTitle from '../components/PageTitle';
+import NavBar from '../components/NavBar';
 
 class Children extends Component {
   state = {
@@ -53,6 +54,7 @@ class Children extends Component {
     } = this.state;
     return (
       <div className="container">
+        <NavBar path="/parent" />
         <PageTitle 
           label="Add New Parent"
         />

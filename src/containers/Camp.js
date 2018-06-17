@@ -27,7 +27,7 @@ class Camp extends Component {
         <SearchBox 
           label="Who are you looking for?"
           type="camp"
-          path="/"
+          path="/add/camp"
         />
         <SearchTable
           data={parentData}

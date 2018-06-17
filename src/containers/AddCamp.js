@@ -6,6 +6,7 @@ import RadioButton from '../components/RadioButton';
 import PageTitle from '../components/PageTitle';
 import SelectProvince from '../components/SelectProvince';
 import { getProject } from '../utils/api';
+import NavBar from '../components/NavBar';
 
 class AddCamp extends Component {
   state = {
@@ -53,6 +54,7 @@ class AddCamp extends Component {
     console.log(projectData);
     return (
       <div className="container">
+        <NavBar path="/camp" />
         <PageTitle 
           label="Add New Camp"
         />

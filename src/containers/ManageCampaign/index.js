@@ -16,22 +16,27 @@ import './style.css';
 const ManageCamapign = () => (
   <div className="manage-campaign-container">
     <div>
-      <div className="manage-campaign-card">
-        <img className="manage-campaign-img" src={baby} alt="" />
-        <label className="manage-campaign-label">Add new Child</label>
-      </div>
-      <div className="manage-campaign-plus">
-        <img src={pblue} alt="" />
-      </div>
+      <Link to="/add/children"> 
+        <div className="manage-campaign-card">
+          <img className="manage-campaign-img" src={baby} alt="" />
+          <label className="manage-campaign-label">Add new Child</label>
+        </div>
+        <div className="manage-campaign-plus">
+          <img src={pblue} alt="" />
+        </div>
+      </Link>
     </div>
     <div>
-      <div className="manage-campaign-card">
-        <img className="manage-campaign-img" src={family} alt="" />
-        <label className="manage-campaign-label">Add new Parent</label>
-      </div>
-      <div className="manage-campaign-plus">
-        <img src={pred} alt="" />
-      </div>
+      <Link to="/add/parent">
+        <div className="manage-campaign-card">
+          <img className="manage-campaign-img" src={family} alt="" />
+          <label className="manage-campaign-label">Add new Parent</label>
+        </div>
+      
+        <div className="manage-campaign-plus">
+          <img src={pred} alt="" />
+        </div>
+      </Link>
     </div>
       <div>
         <Link to="/add/camp">
@@ -56,13 +61,15 @@ const ManageCamapign = () => (
       </Link>
     </div>
     <div>
-      <div className="manage-campaign-card">
-        <img className="manage-campaign-img" src={enginner} alt="" />
-        <label className="manage-campaign-label">Add new Suplier</label>
-      </div>
-      <div className="manage-campaign-plus">
-        <img src={ppurple} alt="" />
-      </div>
+      <Link to="/add/suplier">
+        <div className="manage-campaign-card">
+          <img className="manage-campaign-img" src={enginner} alt="" />
+          <label className="manage-campaign-label">Add new Suplier</label>
+        </div>
+        <div className="manage-campaign-plus">
+          <img src={ppurple} alt="" />
+        </div>
+      </Link>
     </div>
   </div>
 );

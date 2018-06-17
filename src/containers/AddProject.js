@@ -6,6 +6,7 @@ import PageTitle from '../components/PageTitle';
 import SelectProvince from '../components/SelectProvince';
 import { DatesRangeInput } from 'semantic-ui-calendar-react';
 import { postProject } from '../utils/api';
+import NavBar from '../components/NavBar';
 
 class AddProject extends Component {
   state = {
@@ -29,21 +30,19 @@ class AddProject extends Component {
   }
 
   onConfirmClick = async () => {
-    const { projectID, constructionDuration, pmName, email } = this.state;
+    const { projectID, projectName, constructionDuration, pmName, email } = this.state;
     const startDate = moment(constructionDuration.split(' ')[0]).unix();
     const endDate = moment(constructionDuration.split(' ')[2]).unix();
-    // const res = await postProject({
-    //   id: projectID,
-    //   nameTH: 'เทส',
-    //   nameEng: 'test',
-    //   province: province,
-    //   startDate,
-    //   endDate,
-    //   managerContact: {
-    //     name: pmName,
-    //     email,
-    //   }
-    // });
+    const res = await postProject({
+      id: projectID,
+      nameTH: projectName,
+      startDate,
+      endDate,
+      managerContact: {
+        name: pmName,
+        email,
+      }
+    });
   }
 
   onCancelClick = () => {
@@ -60,6 +59,7 @@ class AddProject extends Component {
     // console.log(this.state.constructionDuration)
     return (
       <div className="container">
+        <NavBar path="/campaign" />
         <PageTitle 
           label="Add New Project"
         />
