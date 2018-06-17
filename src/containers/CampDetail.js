@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NavBar from '../components/NavBar';
 import SearchTable from '../components/SearchTable';
 import tentImg from '../images/tent.png';
-import { Image, Grid, Icon, Table } from 'semantic-ui-react'
+import { Image } from 'semantic-ui-react'
 import '../App.css'
 
 class ChildrenDetail extends Component {
