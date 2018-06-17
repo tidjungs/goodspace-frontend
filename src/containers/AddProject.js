@@ -23,9 +23,7 @@ class AddProject extends Component {
   }
 
   handleDateChange = (event, {name, value}) => {
-    if (this.state.hasOwnProperty(name)) {
-      this.setState({ [name]: value });
-    }
+    this.setState({ constructionDuration: value });
   }
 
   onConfirmClick = async () => {

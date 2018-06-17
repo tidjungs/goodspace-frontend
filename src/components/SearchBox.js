@@ -7,6 +7,7 @@ const SearchBox = ({
   label,
   type,
   path,
+  text,
   onTextChange,
   onSearchClick,
 }) => {
@@ -14,13 +15,13 @@ const SearchBox = ({
     <div>
       <label>{label}</label><br />
       <div className="pt-1">
-        <Icon size="large" color="grey" name="search" />
-        <Input placeholder='Search...' />
+        {/* <Icon size="large" color="grey" name="search" /> */}
+        <Input placeholder='Search...' value={text} onChange={onTextChange} />
         <span className="mr-1" />
-        <Button size="small">Search</Button>
+        <Button size="small" onClick={onSearchClick}>Search</Button>
         <span className="mr-1" />
       </div>
-      <div className="pl-2 pt-1">
+      <div className="pt-1">
         <Icon size="large" name="plus circle" /> <Link to={path}>{`Add new ${type}`}</Link>
       </div>
     </div>
@@ -31,9 +32,9 @@ SearchBox.propTypes = {
   label: PropTypes.string,
   type: PropTypes.string,
   path: PropTypes.string,
+  text: PropTypes.string,
   onTextChange: PropTypes.func,
   onSearchClick: PropTypes.func,
 }
-
 
 export default SearchBox;

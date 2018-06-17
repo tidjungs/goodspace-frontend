@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 import NavBar from '../components/NavBar';
 import girlImg from '../images/girl.png';
 import { Image, Grid, Icon, Table } from 'semantic-ui-react'
@@ -7,7 +8,7 @@ import '../App.css'
 
 class ChildrenDetail extends Component {
   state = {
-    childrenData: { id: 1234, name: 'test test', parent: 'abc', camp: 'A' },
+    childrenData: null,
   }
 
   async componentDidMount() {
@@ -21,6 +22,9 @@ class ChildrenDetail extends Component {
   
   render() {
     const { childrenData } = this.state;
+    if (!childrenData) {
+      return <div />
+    }
     return (
       <div className="container">
         <NavBar path="/children" />
@@ -42,7 +46,7 @@ class ChildrenDetail extends Component {
               <Grid.Column>
                 <div className="flex-center">
                   <Icon name="users" size="big"/>
-                  <h4>ติดตามมาประจำ</h4>
+                  <h4>พักอาศัยชั่วคราว</h4>
                 </div>
               </Grid.Column>
               <Grid.Column>
@@ -64,17 +68,17 @@ class ChildrenDetail extends Component {
             <Grid.Row columns={3}>
               <Grid.Column>
                 <div className="flex-center">
-                  <h5>ชื่อ: Monpriya Tammavong</h5>
+                  <h5>{`ชื่อ: ${childrenData.name}`}</h5>
                 </div>
               </Grid.Column>
               <Grid.Column>
                 <div className="flex-center">
-                  <h5>ชื่อผู้ปกครอง: Monpriya Tammavong</h5>
+                  <h5>{`ชื่อผู้ปกครอง: ${childrenData.Parent.name}`}</h5>
                 </div>
               </Grid.Column>
               <Grid.Column>
                 <div className="flex-center">
-                  <h5>วันเดือนปีเกิด: 8 April 1997</h5>
+                  <h5>{`วันเดือนปีเกิด: ${moment(childrenData.birthdate).format('DD/MM/YYYY')}`}</h5>
                 </div>
               </Grid.Column>
             </Grid.Row>

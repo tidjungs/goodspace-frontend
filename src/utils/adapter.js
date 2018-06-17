@@ -1,8 +1,8 @@
 export const childrenAdapter = (children) => children.map((child) => {
   const childObj = { id: child.id, name: child.name };
-  childObj.parent = child.parent ? child.parent.name : 'No parent';
-  childObj.goodSpace = child.goodSpace ? true : false;
-  childObj.camp = child.camp ? child.camp.name : 'No camp';
+  childObj.parent = child.Parent ? child.Parent.name : 'No parent';
+  childObj.goodSpace = child.Camp ? child.Camp.has_goodspace : false;
+  childObj.camp = child.Camp ? child.Camp.id : 'No camp';
   return childObj;
 });
 

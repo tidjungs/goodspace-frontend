@@ -32,3 +32,5 @@ export const postParent = async (payload) => await axios.post(`${API_HOST}/worke
 export const getChildren = async () => await axios.get(`${API_HOST}/children`);
 export const getChildrenById = async (id) => await axios.get(`${API_HOST}/children/${id}`);
 export const postChildren = async (payload) => await axios.post(`${API_HOST}/children`, payload);
+
+export const searchChildren = async (textSearch) => await axios.get(`${API_HOST}/search/children?name=${textSearch}`);

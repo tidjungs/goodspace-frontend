@@ -53,8 +53,8 @@ class AddCamp extends Component {
       name,
       location: address,
       province,
-      has_goodspace: isGoodSpace,
-      project_id: project,
+      has_goodspace: isGoodSpace === "มี" ? true : false,
+      project_id: parseInt(project, 10),
     });
     this.props.history.goBack()
   }

@@ -34,6 +34,7 @@
 
 .main-button-img {
   width: 150px;
+  transition: 0.3s;
 }
 
 .main-button-img:hover {
