@@ -3,7 +3,6 @@ import moment from 'moment';
 import TextInput from '../components/TextInput';
 import ConfirmButton from '../components/ConfirmButton';
 import PageTitle from '../components/PageTitle';
-import SelectProvince from '../components/SelectProvince';
 import { DatesRangeInput } from 'semantic-ui-calendar-react';
 import { postProject } from '../utils/api';
 import NavBar from '../components/NavBar';
@@ -43,10 +42,11 @@ class AddProject extends Component {
         email,
       }
     });
+    this.props.history.goBack()
   }
 
   onCancelClick = () => {
-    
+    this.props.history.goBack()
   }
   render() {
     const {
@@ -56,10 +56,9 @@ class AddProject extends Component {
       pmName,
       email
     } = this.state;
-    // console.log(this.state.constructionDuration)
     return (
       <div className="container">
-        <NavBar path="/campaign" />
+        {/* <NavBar path="/campaign" /> */}
         <PageTitle 
           label="Add New Project"
         />

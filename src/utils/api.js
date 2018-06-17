@@ -18,9 +18,10 @@ export const postProject = async ({ id, nameTH, nameENG, startDate, endDate, man
 
 export const getCamp = async () => await axios.get(`${API_HOST}/camp`);
 
-export const postCamp = async ({ location, province, has_goodspace, project }) => await axios.post(`${API_HOST}/camp`, {
+export const postCamp = async ({ location, province, has_goodspace, project_id }) => await axios.post(`${API_HOST}/camps`, {
   location,
   province,
   has_goodspace,
-  project,
-})
+  project_id,
+});
+

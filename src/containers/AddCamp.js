@@ -5,7 +5,7 @@ import ConfirmButton from '../components/ConfirmButton';
 import RadioButton from '../components/RadioButton';
 import PageTitle from '../components/PageTitle';
 import SelectProvince from '../components/SelectProvince';
-import { getProject } from '../utils/api';
+import { getProject, postCamp } from '../utils/api';
 import NavBar from '../components/NavBar';
 
 class AddCamp extends Component {
@@ -24,9 +24,9 @@ class AddCamp extends Component {
     });
   }
 
-  onProvinceChange = (e, { value }) => {
+  onProjectChange = (e, { value }) => {
     this.setState({
-      project: value,
+      project: value.split('-')[1],
     });
   }
   onProvinceChange = (e, { value }) => {
@@ -45,26 +45,40 @@ class AddCamp extends Component {
     this.setState({ isGoodSpace: value })
   }
 
+  onConfirmClick = async () => {
+    const { project, address, province, isGoodSpace } = this.state;
+    const res = await postCamp({
+      location: address,
+      province,
+      has_goodspace: isGoodSpace,
+      project_id: project,
+    });
+    this.props.history.goBack()
+  }
+
+  onCancelClick = () => {
+    this.props.history.goBack()
+  }
+
   render() {
     const {
       projectData,
       address,
       isGoodSpace
     } = this.state;
-    console.log(projectData);
     return (
       <div className="container">
-        <NavBar path="/camp" />
+        {/* <NavBar path="/camp" /> */}
         <PageTitle 
           label="Add New Camp"
         />
         <div className="mt-1">
-          <label>เลือกโครงการ</label>
-          <Input list='projects' placeholder='เลือกโครงการ' />
+          <label>เลือกโครงการ</label><br />
+          <Input list='projects' placeholder='เลือกโครงการ' onChange={this.onProjectChange} />
           <datalist id='projects'>
             {
               projectData.map(p =>
-                <option value={p.name_th} />
+                <option value={p.name_th + '-' + p.id} key={p.id} />
               )
             }
           </datalist>
@@ -91,7 +105,10 @@ class AddCamp extends Component {
           />
         </div>
         <div className="mt-1">
-          <ConfirmButton />
+          <ConfirmButton 
+            onConfirmClick={this.onConfirmClick}
+            onCancelClick={this.onCancelClick}
+          />
         </div>
       </div>
     );

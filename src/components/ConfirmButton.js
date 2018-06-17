@@ -11,7 +11,7 @@ const ConfirmButton = ({
       <Button.Group>
         <Button positive onClick={onConfirmClick}>Save</Button>
         <Button.Or />
-        <Button onClick={onConfirmClick}>Cancel</Button>
+        <Button onClick={onCancelClick}>Cancel</Button>
       </Button.Group>
     </div>
   )

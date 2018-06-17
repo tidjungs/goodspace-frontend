@@ -36,7 +36,6 @@ class App extends Component {
             <Route exact path="/children/:childId" component={ChildrenDetail} />
             <Route exact path="/camp" component={Camp} />
             <Route exact path="/campaign" component={ManageCamapign} />
-            <Route path="/children/:childId" component={ChildrenDetail} />
             <Route path="/add/camp" component={AddCamp} />
             <Route path="/add/children" component={AddChildren} />
             <Route path="/add/parent" component={AddParent} />
